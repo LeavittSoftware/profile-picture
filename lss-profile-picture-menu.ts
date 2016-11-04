@@ -1,6 +1,6 @@
 ﻿@behavior(LssRequesterBehavior)
 @component("lss-profile-picture-menu")
-class LeavittProfilePictureMenu extends polymer.Base {
+class LssProfilePictureMenu extends polymer.Base {
     requestInstance: (key: string) => LssUserManager;
 
     @property({
@@ -60,4 +60,4 @@ class LeavittProfilePictureMenu extends polymer.Base {
         this.hovered = false;
     }
 }
-LeavittProfilePictureMenu.register();
+LssProfilePictureMenu.register();
