@@ -1,6 +1,4 @@
-﻿/// <reference path="./bower_components/polymer-ts/polymer-ts.ts" />
- 
-@component("lss-profile-picture")
+﻿@component("lss-profile-picture")
 class LSSProfilePicture extends polymer.Base {
 
     @property({
