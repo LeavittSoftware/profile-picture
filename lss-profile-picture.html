@@ -1,0 +1,12 @@
+<link rel="import" href="./bower_components/polymer/polymer.html">
+<link rel="import" href="./bower_components/polymer-ts/polymer-ts.html">
+
+<link rel="import" href="./bower_components/image-mask/image-mask.html">
+<link rel="import" href="./bower_components/iron-ajax/iron-ajax.html">
+
+<dom-module id="profile-picture">
+    <template>
+        <image-mask src="{{src}}" size="{{size}}" shape="{{shape}}" href="{{href}}" person-id="{{personId}}" desc="{{desc}}"></image-mask>
+    </template>
+    <script type="text/javascript" src="lss-profile-picture.js"></script>
+</dom-module>

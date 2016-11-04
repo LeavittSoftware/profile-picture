@@ -1,0 +1,104 @@
+﻿<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer-ts/polymer-ts.html">
+
+<link rel="import" href="../paper-dialog/paper-dialog.html">
+<link rel="import" href="../neon-animation/animations/fade-in-animation.html">
+<link rel="import" href="../neon-animation/animations/fade-out-animation.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../lss-user-manager/lss-user-manager.html">
+<link rel="import" href="../lss-inject/lss-requester-behavior.html">
+<link rel="import" href="./lss-profile-picture.html">
+
+<dom-module id="lss-profile-picture-menu">
+	<style>
+		paper-dialog {
+			min-width: 305px;
+			margin: 2px 0 0 0;
+		}
+		
+		#my-account-box {
+			@apply(--layout-flex);
+			@apply(--layout-vertical);
+			padding: 8px !important;
+			margin: 0 !important;
+		}
+		
+		.arrow-up {
+			width: 0;
+			height: 0;
+			position: absolute;
+			top: -10px;
+			right: 18px;
+			border-left: 10px solid transparent;
+			border-right: 10px solid transparent;
+			border-bottom: 10px solid white;
+		}
+		
+		#my-account-box .my-account-person {
+			@apply(--layout-horizontal);
+		}
+		
+		#my-account-box .my-account-info {
+			@apply(--layout-vertical);
+			@apply(--layout-flex);
+			padding: 8px;
+		}
+		
+		#my-account-box .my-account-info .full-name {
+			@apply(--paper-font-subhead);
+			font-weight: bold;
+		}
+		
+		#my-account-box .my-account-info .sub-head {
+			color: #666;
+		}
+		
+		#my-account-box .my-account-info paper-button {
+			margin-top: 32px;
+			margin-bottom: 32px;
+			width: 125px;
+		}
+		
+		profile-picture {
+			@apply(--layout-vertical);
+			padding: 8px;
+		}
+		
+		.my-account-buttons {
+			@apply(--layout-horizontal);
+			@apply(--layout-end-justified);
+		}
+		
+		paper-button#my-account-button {
+			background-color: var(--paper-blue-500);
+			color: white;
+			--paper-button-raised-keyboard-focus: {
+				background-color: var(--paper-pink-a200) !important;
+				color: white !important;
+			};
+		}
+	</style>
+	<template>
+		<section>
+			<paper-dialog exit-animation="fade-out-animation" entry-animation="fade-in-animation" id="dialog" no-overlap horizontal-align="right"
+				vertical-align="top">
+				<div id="my-account-box">
+					<div class="arrow-up"></div>
+					<div class="my-account-person">
+						<profile-picture person-id="[[personId]]" shape="circle" size="75"></profile-picture>
+						<div class="my-account-info">
+							<div class="full-name">{{fullname}}</div>
+							<div class="sub-head">Leavitt Group Account</div>
+							<paper-button id="my-account-button" flat>My Account</paper-button>
+						</div>
+					</div>
+					<div class="my-account-buttons">
+						<paper-button id="signout" raised>Sign out</paper-button>
+					</div>
+				</div>
+			</paper-dialog>
+			<profile-picture person-id="[[personId]]" id="profilePicture" shape="circle" size="40" on-mouseover="onHovered" on-mouseout="onUnhovered"></profile-picture>
+		</section>
+	</template>
+	<script type="text/javascript" src="lss-profile-picture-menu.js"> </script>
+</dom-module>
