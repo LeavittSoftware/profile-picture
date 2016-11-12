@@ -45,9 +45,25 @@ class LSSProfilePicture extends polymer.Base {
     })
     src: String;
 
+    private isDev(): boolean {
+
+        if (document == null || document.location == null || document.location.host == null)
+            return true;
+
+        const host = document.location.host;
+        if (host.indexOf("dev") !== -1)
+            return true;
+
+        if (host.indexOf("localhost") !== -1)
+            return true;
+
+        return false;
+    }
+    
     private buildUrl(personId: number, size: number) {
         const largerSize = size * 1.2;  //Grabs a larger picture than needed to reduce pixelation 
-        return `https://api2.leavitt.com/People(${personId})/Default.Picture(size=${largerSize})`;
+        var baseUrl = this.isDev() ? "https://devapi2.leavitt.com/" : "https://api2.leavitt.com/";
+        return `${baseUrl}People(${personId})/Default.Picture(size=${largerSize})`;
     }
 
     private randomId(shape) {
