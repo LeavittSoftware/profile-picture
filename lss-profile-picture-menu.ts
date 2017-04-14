@@ -16,7 +16,7 @@ class LssProfilePictureMenu extends polymer.Base {
     })
     personId: Number;
 
-     @property({
+    @property({
         value: 0,
         type: Number,
         notify: true
@@ -41,8 +41,7 @@ class LssProfilePictureMenu extends polymer.Base {
 
     @listen("signout.tap")
     signoutClickHandler(e) {
-        this.userManager.logoutAsync()
-            .then(o => location.reload());
+        this.userManager.logoutAsync();
     }
 
     @listen("iron-overlay-canceled")

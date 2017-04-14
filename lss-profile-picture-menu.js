@@ -1,81 +1,86 @@
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var LeavittProfilePictureMenu = (function (_super) {
-    __extends(LeavittProfilePictureMenu, _super);
-    function LeavittProfilePictureMenu() {
-        _super.apply(this, arguments);
-        this.hovered = false;
+var LssProfilePictureMenu = (function (_super) {
+    __extends(LssProfilePictureMenu, _super);
+    function LssProfilePictureMenu() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.hovered = false;
+        return _this;
     }
-    LeavittProfilePictureMenu.prototype.attached = function () {
+    LssProfilePictureMenu.prototype.attached = function () {
         this.userManager = this.requestInstance("UserManager");
     };
-    LeavittProfilePictureMenu.prototype.clickHandler = function (e) {
+    LssProfilePictureMenu.prototype.clickHandler = function (e) {
         var dialog = this.$.dialog;
         dialog.positionTarget = this.$.profilePicture;
         dialog.toggle();
     };
-    LeavittProfilePictureMenu.prototype.myAccountClickHandler = function (e) {
+    LssProfilePictureMenu.prototype.myAccountClickHandler = function (e) {
         window.open("https://accounts.leavitt.com/", "_blank");
     };
-    LeavittProfilePictureMenu.prototype.signoutClickHandler = function (e) {
-        this.userManager.logoutAsync()
-            .then(function (o) { return location.reload(); });
+    LssProfilePictureMenu.prototype.signoutClickHandler = function (e) {
+        this.userManager.logoutAsync();
     };
-    LeavittProfilePictureMenu.prototype.canceled = function (event) {
+    LssProfilePictureMenu.prototype.canceled = function (event) {
         if (this.hovered)
             event.preventDefault();
     };
-    LeavittProfilePictureMenu.prototype.onHovered = function () {
+    LssProfilePictureMenu.prototype.onHovered = function () {
         this.hovered = true;
     };
-    LeavittProfilePictureMenu.prototype.onUnhovered = function () {
+    LssProfilePictureMenu.prototype.onUnhovered = function () {
         this.hovered = false;
     };
-    __decorate([
-        property({
-            type: LssUserManager,
-            notify: true
-        })
-    ], LeavittProfilePictureMenu.prototype, "userManager", void 0);
-    __decorate([
-        property({
-            value: 0,
-            type: Number,
-            notify: true
-        })
-    ], LeavittProfilePictureMenu.prototype, "personId", void 0);
-    __decorate([
-        property({
-            value: 0,
-            type: Number,
-            notify: true
-        })
-    ], LeavittProfilePictureMenu.prototype, "fullname", void 0);
-    __decorate([
-        listen("profilePicture.tap")
-    ], LeavittProfilePictureMenu.prototype, "clickHandler", null);
-    __decorate([
-        listen("my-account-button.tap")
-    ], LeavittProfilePictureMenu.prototype, "myAccountClickHandler", null);
-    __decorate([
-        listen("signout.tap")
-    ], LeavittProfilePictureMenu.prototype, "signoutClickHandler", null);
-    __decorate([
-        listen("iron-overlay-canceled")
-    ], LeavittProfilePictureMenu.prototype, "canceled", null);
-    LeavittProfilePictureMenu = __decorate([
-        behavior(LssRequesterBehavior),
-        component("lss-profile-picture-menu")
-    ], LeavittProfilePictureMenu);
-    return LeavittProfilePictureMenu;
+    return LssProfilePictureMenu;
 }(polymer.Base));
-LeavittProfilePictureMenu.register();
+__decorate([
+    property({
+        type: LssUserManager,
+        notify: true
+    })
+], LssProfilePictureMenu.prototype, "userManager", void 0);
+__decorate([
+    property({
+        value: 0,
+        type: Number,
+        notify: true
+    })
+], LssProfilePictureMenu.prototype, "personId", void 0);
+__decorate([
+    property({
+        value: 0,
+        type: Number,
+        notify: true
+    })
+], LssProfilePictureMenu.prototype, "fullname", void 0);
+__decorate([
+    listen("profilePicture.tap")
+], LssProfilePictureMenu.prototype, "clickHandler", null);
+__decorate([
+    listen("my-account-button.tap")
+], LssProfilePictureMenu.prototype, "myAccountClickHandler", null);
+__decorate([
+    listen("signout.tap")
+], LssProfilePictureMenu.prototype, "signoutClickHandler", null);
+__decorate([
+    listen("iron-overlay-canceled")
+], LssProfilePictureMenu.prototype, "canceled", null);
+LssProfilePictureMenu = __decorate([
+    behavior(LssRequesterBehavior),
+    component("lss-profile-picture-menu")
+], LssProfilePictureMenu);
+LssProfilePictureMenu.register();
