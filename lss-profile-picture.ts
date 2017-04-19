@@ -40,15 +40,13 @@ class LSSProfilePicture extends polymer.Base {
     maskId: String;
 
     @property({
-        computed: "buildUrl(personId, size)",
         notify: true
     })
     src: String;
 
     refresh() {
         var personId = this.personId;
-        this.set('personId', 0);
-        this.set('personId', personId);
+        this.setUrl(this.personId, this.size, true);
     }
 
     private isDev(): boolean {
@@ -66,10 +64,16 @@ class LSSProfilePicture extends polymer.Base {
         return false;
     }
 
-    private buildUrl(personId: number, size: number) {
-        const largerSize = size * 1.2;  //Grabs a larger picture than needed to reduce pixelation 
+    private getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    @observe("personId,size")
+    private setUrl(personId: number, size: number, forceReload = false) {
+        const largerSize = size * 1.2;  //Grabs a larger picture than needed to reduce pixelation
         var baseUrl = this.isDev() ? "https://devapi2.leavitt.com/" : "https://api2.leavitt.com/";
-        return `${baseUrl}People(${personId})/Default.Picture(size=${largerSize})`;
+        var version = forceReload ? `?v=${this.getRandomInt(1, 1000)}` : "";
+        this.src = `${baseUrl}People(${personId})/Default.Picture(size=${largerSize})${version}`;
     }
 
     private randomId(shape) {
