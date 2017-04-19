@@ -27,6 +27,11 @@ class LssProfilePictureMenu extends polymer.Base {
         this.userManager = this.requestInstance("UserManager");
     }
 
+    refresh() {
+        this.$.profilePicture.refresh();
+        this.$.innerProfilePicture.refresh();
+    }
+
     @listen("profilePicture.tap")
     clickHandler(e) {
         const dialog: any = this.$.dialog;
