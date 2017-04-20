@@ -68,6 +68,11 @@ __decorate([
     })
 ], LssProfilePictureMenu.prototype, "fullname", void 0);
 __decorate([
+    property({
+        notify: true
+    })
+], LssProfilePictureMenu.prototype, "src", void 0);
+__decorate([
     listen("profilePicture.tap")
 ], LssProfilePictureMenu.prototype, "clickHandler", null);
 __decorate([
