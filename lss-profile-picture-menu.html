@@ -86,7 +86,7 @@
 				<div id="my-account-box">
 					<div class="arrow-up"></div>
 					<div class="my-account-person">
-						<lss-profile-picture id="innerProfilePicture" person-id="[[personId]]" shape="circle" size="75"></lss-profile-picture>
+						<lss-profile-picture src="[[src]]" person-id="[[personId]]" shape="circle" size="75"></lss-profile-picture>
 						<div class="my-account-info">
 							<div class="full-name">{{fullname}}</div>
 							<div class="sub-head">Leavitt Group Account</div>
@@ -98,7 +98,8 @@
 					</div>
 				</div>
 			</paper-dialog>
-			<lss-profile-picture person-id="[[personId]]" id="profilePicture" shape="circle" size="40" on-mouseover="onHovered" on-mouseout="onUnhovered"></lss-profile-picture>
+			<lss-profile-picture src="[[src]]" person-id="[[personId]]" id="profilePicture" shape="circle" size="40" on-mouseover="onHovered"
+			    on-mouseout="onUnhovered"></lss-profile-picture>
 		</section>
 	</template>
 	<script type="text/javascript" src="lss-profile-picture-menu.js">

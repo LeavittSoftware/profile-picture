@@ -23,13 +23,13 @@ class LssProfilePictureMenu extends polymer.Base {
     })
     fullname: Number;
 
+    @property({
+        notify: true
+    })
+    src: String;
+
     attached() {
         this.userManager = this.requestInstance("UserManager");
-    }
-
-    refresh() {
-        this.$.profilePicture.refresh();
-        this.$.innerProfilePicture.refresh();
     }
 
     @listen("profilePicture.tap")
