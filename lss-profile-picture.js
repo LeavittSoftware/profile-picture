@@ -29,10 +29,9 @@ var LSSProfilePicture = (function (_super) {
             return true;
         return false;
     };
-    LSSProfilePicture.prototype.setUrl = function (personId, size) {
-        var largerSize = size * 1.2; //Grabs a larger picture than needed to reduce pixelation 
+    LSSProfilePicture.prototype.setUrl = function (personId) {
         var baseUrl = this.isDev() ? "https://devapi2.leavitt.com/" : "https://api2.leavitt.com/";
-        this.src = baseUrl + "People(" + personId + ")/Default.Picture(size=" + largerSize + ")";
+        this.src = baseUrl + "People(" + personId + ")/Default.Picture(size=256)";
     };
     LSSProfilePicture.prototype.randomId = function (shape) {
         return shape + "-" + Math.random().toString(36).substr(2, 4);
@@ -55,7 +54,7 @@ __decorate([
 ], LSSProfilePicture.prototype, "shape", void 0);
 __decorate([
     property({
-        value: 320,
+        value: 200,
         notify: true,
         reflectToAttribute: true
     })
@@ -83,7 +82,7 @@ __decorate([
     })
 ], LSSProfilePicture.prototype, "src", void 0);
 __decorate([
-    observe("personId,size")
+    observe("personId")
 ], LSSProfilePicture.prototype, "setUrl", null);
 LSSProfilePicture = __decorate([
     component("lss-profile-picture")

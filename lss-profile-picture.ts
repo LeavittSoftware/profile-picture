@@ -16,7 +16,7 @@ class LSSProfilePicture extends polymer.Base {
     shape: String;
 
     @property({
-        value: 320,
+        value: 200,
         notify: true,
         reflectToAttribute: true
     })
@@ -59,11 +59,10 @@ class LSSProfilePicture extends polymer.Base {
         return false;
     }
 
-    @observe("personId,size")
-    private setUrl(personId: number, size: number) {
-        const largerSize = size * 1.2;  //Grabs a larger picture than needed to reduce pixelation 
+    @observe("personId")
+    private setUrl(personId: number) {
         var baseUrl = this.isDev() ? "https://devapi2.leavitt.com/" : "https://api2.leavitt.com/";
-        this.src = `${baseUrl}People(${personId})/Default.Picture(size=${largerSize})`;
+        this.src = `${baseUrl}People(${personId})/Default.Picture(size=256)`;
     }
 
     private randomId(shape) {
