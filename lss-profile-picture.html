@@ -6,6 +6,12 @@
 
 <dom-module id="lss-profile-picture">
     <template>
+		<style>
+             :host {
+                margin-bottom: -5px;
+                overflow: hidden;
+            }
+        </style>
         <image-mask src="{{src}}" size="{{size}}" shape="{{shape}}" href="{{href}}" person-id="{{personId}}" desc="{{desc}}"></image-mask>
     </template>
     <script type="text/javascript" src="lss-profile-picture.js"></script>
