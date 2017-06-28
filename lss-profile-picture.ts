@@ -6,7 +6,6 @@ class LSSProfilePicture extends Polymer.Element {
 
     constructor() {
         super();
-        console.log("What");
     }
 
     @property({ reflectToAttribute: true })
