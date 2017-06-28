@@ -1,91 +1,80 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var LSSProfilePicture = (function (_super) {
-    __extends(LSSProfilePicture, _super);
-    function LSSProfilePicture() {
-        return _super !== null && _super.apply(this, arguments) || this;
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+let LSSProfilePicture = class LSSProfilePicture extends Polymer.Element {
+    constructor() {
+        super();
+        this.personId = 44;
+        this.shape = "circle";
+        this.size = 60;
+        console.log("What");
     }
-    LSSProfilePicture.prototype.isDev = function () {
+    _sizeChanged() {
+        this.style.width = this.size + 'px';
+        this.style.height = this.size + 'px';
+    }
+    refresh() {
+        var personId = this.personId;
+        this.set('personId', 0);
+        this.set('personId', personId);
+    }
+    isDev() {
         if (document == null || document.location == null || document.location.host == null)
             return true;
-        var host = document.location.host;
+        const host = document.location.host;
         if (host.indexOf("dev") !== -1)
             return true;
         if (host.indexOf("localhost") !== -1)
             return true;
         return false;
-    };
-    LSSProfilePicture.prototype.setUrl = function (personId) {
+    }
+    getSrc(personId, size) {
+        console.log("getSrc");
+        const largerSize = size * 1.2; //Grabs a larger picture than needed to reduce pixelation 
         var baseUrl = this.isDev() ? "https://devapi2.leavitt.com/" : "https://api2.leavitt.com/";
-        this.src = baseUrl + "People(" + personId + ")/Default.Picture(size=256)";
-    };
-    LSSProfilePicture.prototype.randomId = function (shape) {
-        return shape + "-" + Math.random().toString(36).substr(2, 4);
-    };
-    return LSSProfilePicture;
-}(polymer.Base));
+        return `${baseUrl}People(${personId})/Default.Picture(size=${largerSize})`;
+    }
+    pIdChanged(val, old) {
+        console.log(val, old);
+    }
+};
 __decorate([
-    property({
-        value: 0,
-        type: Number,
-        notify: true
-    })
+    property({ notify: true }),
+    __metadata("design:type", Number)
 ], LSSProfilePicture.prototype, "personId", void 0);
 __decorate([
-    property({
-        value: "circle",
-        notify: true,
-        reflectToAttribute: true
-    })
+    property({ reflectToAttribute: true }),
+    __metadata("design:type", String)
 ], LSSProfilePicture.prototype, "shape", void 0);
 __decorate([
-    property({
-        value: 200,
-        notify: true,
-        reflectToAttribute: true
-    })
+    property(),
+    __metadata("design:type", Number)
 ], LSSProfilePicture.prototype, "size", void 0);
 __decorate([
-    property({
-        notify: true
-    })
-], LSSProfilePicture.prototype, "href", void 0);
+    observe('size'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], LSSProfilePicture.prototype, "_sizeChanged", null);
 __decorate([
-    property({
-        value: "",
-        notify: true
-    })
-], LSSProfilePicture.prototype, "desc", void 0);
+    computed('src'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number, Number]),
+    __metadata("design:returntype", void 0)
+], LSSProfilePicture.prototype, "getSrc", null);
 __decorate([
-    property({
-        computed: "randomId(shape)",
-        notify: true
-    })
-], LSSProfilePicture.prototype, "maskId", void 0);
-__decorate([
-    property({
-        notify: true
-    })
-], LSSProfilePicture.prototype, "src", void 0);
-__decorate([
-    observe("personId")
-], LSSProfilePicture.prototype, "setUrl", null);
+    observe("url"),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:returntype", void 0)
+], LSSProfilePicture.prototype, "pIdChanged", null);
 LSSProfilePicture = __decorate([
-    component("lss-profile-picture")
+    customElement("lss-profile-picture"),
+    __metadata("design:paramtypes", [])
 ], LSSProfilePicture);
-// after the element is defined, we register it in Polymer
-LSSProfilePicture.register();

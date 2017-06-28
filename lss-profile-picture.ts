@@ -1,48 +1,31 @@
-﻿@component("lss-profile-picture")
-class LSSProfilePicture extends polymer.Base {
+﻿@customElement("lss-profile-picture")
+class LSSProfilePicture extends Polymer.Element {
 
-    @property({
-        value: 0,
-        type: Number,
-        notify: true
-    })
-    personId: number;
+    @property({ notify: true })
+    personId: number = 44;
 
-    @property({
-        value: "circle",
-        notify: true,
-        reflectToAttribute: true
-    })
-    shape: String;
+    constructor() {
+        super();
+        console.log("What");
+    }
 
-    @property({
-        value: 200,
-        notify: true,
-        reflectToAttribute: true
-    })
-    size: number;
+    @property({ reflectToAttribute: true })
+    shape: string = "circle";
 
-    @property({
-        notify: true
-    })
-    href: String;
+    @property()
+    size: number = 60;
 
-    @property({
-        value: "",
-        notify: true
-    })
-    desc: String;
+    @observe('size')
+    _sizeChanged() {
+        this.style.width = this.size + 'px';
+        this.style.height = this.size + 'px';
+    }
 
-    @property({
-        computed: "randomId(shape)",
-        notify: true
-    })
-    maskId: String;
-
-    @property({
-        notify: true
-    })
-    src: String;
+    public refresh() {
+        var personId = this.personId;
+        this.set('personId', 0);
+        this.set('personId', personId);
+    }
 
     private isDev(): boolean {
 
@@ -59,16 +42,18 @@ class LSSProfilePicture extends polymer.Base {
         return false;
     }
 
-    @observe("personId")
-    private setUrl(personId: number) {
+
+    @computed('src')
+    getSrc(personId: number, size: number) {
+        console.log("getSrc")
+        const largerSize = size * 1.2;  //Grabs a larger picture than needed to reduce pixelation 
         var baseUrl = this.isDev() ? "https://devapi2.leavitt.com/" : "https://api2.leavitt.com/";
-        this.src = `${baseUrl}People(${personId})/Default.Picture(size=256)`;
+        return `${baseUrl}People(${personId})/Default.Picture(size=${largerSize})`;
     }
 
-    private randomId(shape) {
-        return shape + "-" + Math.random().toString(36).substr(2, 4);
+    @observe("url") pIdChanged(val: string, old: string) {
+        console.log(val, old);
     }
+
+
 }
-
-// after the element is defined, we register it in Polymer
-LSSProfilePicture.register();

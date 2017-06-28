@@ -1,18 +1,24 @@
 {
-  "name": "project",
-  "version": "1.4.2",
-  "description": "Leavitt Group Enterprise Manager",
-  "main": "service-worker.js",
-  "directories": {
-    "test": "test"
+  "name": "profile-picture",
+  "version": "2.0.1",
+  "description": "Leavitt Profile Picture for Polymer 2",
+  "main": "profile-picture.html",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.18.2",
+    "gulp": "^3.9.1"
   },
-  "dependencies": {
-    "@types/es6-promise": "0.0.28"
-  },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LssPolymerElements/profile-picture.git"
+  },
   "author": "",
-  "license": "ISC"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LssPolymerElements/profile-picture/issues"
+  },
+  "homepage": "https://github.com/LssPolymerElements/profile-picture#readme"
 }

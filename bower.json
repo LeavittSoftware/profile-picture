@@ -1,12 +1,12 @@
 {
   "name": "lss-profile-picture",
-  "version": "1.8.0",
+  "version": "2.0.0",
   "description": "A polymer profile picture manager for Leavitt",
   "authors": [
     "Leavitt Software Solutions"
   ],
   "keywords": [
-    "polymer",
+    "polymer 2",
     "leavitt software",
     "lss"
   ],
@@ -26,18 +26,18 @@
     ".vscode"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.1.0",
-    "polymer-ts": "^0.1.26",
-    "paper-dialog": "PolymerElements/paper-dialog#^1.1.0",
-    "paper-button": "PolymerElements/paper-button#^1.0.14",
-    "neon-animation": "PolymerElements/neon-animation#^1.2.4",
-    "lss-user-manager": "^2.0.0",
-    "lss-inject": "^1.0.1",
-    "iron-ajax": "PolymerElements/iron-ajax#^1.4.3",
-    "image-mask": "^1.1.4"
+    "polymer": "Polymer/polymer#^2.0.0",
+    "polymer2-ts": "^1.0.0",
+    "paper-dialog": "PolymerElements/paper-dialog#^2.0.0",
+    "paper-button": "PolymerElements/paper-button#^2.0.0",
+    "lss-inject": "^2.0.0",
+    "neon-animation": "PolymerElements/neon-animation#^2.0.0",
+    "iron-image": "^2.1.1",
+    "web-animations-js": "^2.2.5"
   },
   "devDependencies": {
-    "web-component-tester": "^4.0.0",
-    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+    "lss-iron-demo-helpers": "LssPolymerElements/iron-demo-helpers#^2.0.0",
+    "web-component-tester": "Polymer/web-component-tester#^6.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
   }
 }
