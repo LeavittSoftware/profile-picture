@@ -1,61 +1,49 @@
-﻿@behavior(LssRequesterBehavior)
-@component("lss-profile-picture-menu")
-class LssProfilePictureMenu extends polymer.Base {
-    requestInstance: (key: string) => LssUserManager;
+﻿@customElement("lss-profile-picture-menu")
+class LssProfilePictureMenu extends LssRequesterBehavior(Polymer.Element) {
 
-    @property({
-        type: LssUserManager,
-        notify: true
-    })
-    userManager: LssUserManager;
+    @property({ notify: true })
+    userManager: any;
 
-    @property({
-        value: 0,
-        type: Number,
-        notify: true
-    })
-    personId: Number;
+    @property({ notify: true })
+    personId: number;
 
-    @property({
-        value: 0,
-        type: Number,
-        notify: true
-    })
-    fullname: Number;
+    @property({ notify: true })
+    fullname: string;
 
-    attached() {
-        this.userManager = this.requestInstance("UserManager");
-    }
+    private hovered = false;
 
     refresh() {
         this.$.profilePicture.refresh();
         this.$.innerProfilePicture.refresh();
     }
 
-    @listen("profilePicture.tap")
-    clickHandler(e) {
+    @listen("tap", "profilePicture")
+    clickHandler(e: any) {
+        console.log("clicked")
+
         const dialog: any = this.$.dialog;
         dialog.positionTarget = this.$.profilePicture;
         dialog.toggle();
     }
 
-    @listen("my-account-button.tap")
-    myAccountClickHandler(e) {
+    @listen("tap", "my-account-button")
+    myAccountClickHandler(e: any) {
         window.open("https://accounts.leavitt.com/", "_blank");
     }
 
-    @listen("signout.tap")
-    signoutClickHandler(e) {
+    @listen("tap", "signout")
+    signoutClickHandler(e: any) {
+        this.userManager = this.requestInstance("UserManager");
         this.userManager.logoutAsync();
     }
 
     @listen("iron-overlay-canceled")
-    canceled(event) {
+    canceled(event: any) {
+        console.log("iron-overlay-canceled listener called.")
         if (this.hovered)
             event.preventDefault();
     }
 
-    hovered = false;
     onHovered() {
         this.hovered = true;
     }
@@ -64,4 +52,3 @@ class LssProfilePictureMenu extends polymer.Base {
         this.hovered = false;
     }
 }
-LssProfilePictureMenu.register();

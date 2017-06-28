@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>x-test demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../lss-profile-picture.html">
+    <link rel="import" href="../lss-profile-picture-menu.html">
+
+    <custom-style>
+        <style is="custom-style" include="demo-pages-shared-styles">
+
+        </style>
+    </custom-style>
+</head>
+
+<body>
+    <div class="vertical-section-container centered">
+        <h3>LSS User Profile Demo</h3>
+        <demo-snippet>
+            <template>
+                <lss-profile-picture shape="square" person-id="11056"></lss-profile-picture>
+            </template>
+        </demo-snippet>
+
+        <h3>LSS User Profile Demo</h3>
+        <demo-snippet>
+            <template>
+                <div style="background-color:lightgrey">
+                    <lss-profile-picture-menu person-id="11056"></lss-profile-picture-menu>
+                </div>
+            </template>
+        </demo-snippet>
+    </div>
+</body>
+
+</html>

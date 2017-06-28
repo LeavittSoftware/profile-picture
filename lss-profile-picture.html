@@ -1,12 +1,20 @@
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../polymer-ts/polymer-ts.html">
-
-<link rel="import" href="../image-mask/image-mask.html">
-<link rel="import" href="../iron-ajax/iron-ajax.html">
+<link rel="import" href="../polymer2-ts/polymer2-ts.html">
+<link rel="import" href="../iron-image/iron-image.html">
 
 <dom-module id="lss-profile-picture">
     <template>
-        <image-mask src="{{src}}" size="{{size}}" shape="{{shape}}" href="{{href}}" person-id="{{personId}}" desc="{{desc}}"></image-mask>
+        <style>
+             :host {
+                display: block;
+            }
+
+            iron-image[shape=circle] {
+                border-radius: 50%;
+                cursor: pointer;
+            }
+        </style>
+        <iron-image src="{{src}}" sizing="cover" width="[[size]]" height="[[size]]" shape$="{{shape}}" src$="[[src]]"></iron-image>
     </template>
     <script type="text/javascript" src="lss-profile-picture.js"></script>
 </dom-module>
