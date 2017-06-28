@@ -2,9 +2,9 @@
 
 To install use: `bower install --save lss-profile-picture`
 
-[ LIVE DEMO AND API ](https://www.webcomponents.org/element/LssPolymerElements/lss-profile-picture)
+[ LIVE DEMO AND API ](https://www.webcomponents.org/element/LssPolymerElements/profile-picture)
 
-[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/lss-profile-picture/lss-profile-picture)
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/LssPolymerElements/profile-picture)
 
 <!---
 ```
