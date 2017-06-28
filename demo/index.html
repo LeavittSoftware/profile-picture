@@ -5,12 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>x-test demo</title>
-
+    <title>Profile Picture Demo</title>
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 
-    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../../polymer/polymer.html">
+    <link rel="import" href="../../lss-iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../lss-iron-demo-helpers/demo-snippet.html">
+
     <link rel="import" href="../lss-profile-picture.html">
     <link rel="import" href="../lss-profile-picture-menu.html">
 
@@ -19,25 +20,40 @@
 
         </style>
     </custom-style>
+
 </head>
+
+
+<dom-module id="x-demo">
+    <template>
+        <h3>Circle Letter Icon Demo</h3>
+        <demo-snippet>
+            <code>
+                <lss-profile-picture shape="square" person-id="11056"></lss-profile-picture>
+      </code>
+        </demo-snippet>
+
+        <h3>Circle Letter Icon Demo</h3>
+        <demo-snippet>
+            <code>
+        <lss-profile-picture-menu person-id="11056"></lss-profile-picture-menu>
+      </code>
+        </demo-snippet>
+
+    </template>
+    <script>
+        class XDemo extends Polymer.Element {
+            static get is() {
+                return 'x-demo';
+            }
+        }
+        customElements.define(XDemo.is, XDemo);
+    </script>
+</dom-module>
 
 <body>
     <div class="vertical-section-container centered">
-        <h3>LSS User Profile Demo</h3>
-        <demo-snippet>
-            <template>
-                <lss-profile-picture shape="square" person-id="11056"></lss-profile-picture>
-            </template>
-        </demo-snippet>
-
-        <h3>LSS User Profile Demo</h3>
-        <demo-snippet>
-            <template>
-                <div style="background-color:lightgrey">
-                    <lss-profile-picture-menu person-id="11056"></lss-profile-picture-menu>
-                </div>
-            </template>
-        </demo-snippet>
+        <x-demo></x-demo>
     </div>
 </body>
 
