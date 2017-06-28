@@ -4,10 +4,6 @@ class LSSProfilePicture extends Polymer.Element {
     @property({ notify: true })
     personId: number = 44;
 
-    constructor() {
-        super();
-    }
-
     @property({ reflectToAttribute: true })
     shape: string = "circle";
 
