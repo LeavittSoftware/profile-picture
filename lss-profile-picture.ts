@@ -45,15 +45,8 @@ class LSSProfilePicture extends Polymer.Element {
 
     @computed('src')
     getSrc(personId: number, size: number) {
-        console.log("getSrc")
         const largerSize = size * 1.2;  //Grabs a larger picture than needed to reduce pixelation 
         var baseUrl = this.isDev() ? "https://devapi2.leavitt.com/" : "https://api2.leavitt.com/";
         return `${baseUrl}People(${personId})/Default.Picture(size=${largerSize})`;
     }
-
-    @observe("url") pIdChanged(val: string, old: string) {
-        console.log(val, old);
-    }
-
-
 }

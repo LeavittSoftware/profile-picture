@@ -1,6 +1,6 @@
 {
   "name": "lss-profile-picture",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "A polymer profile picture manager for Leavitt",
   "authors": [
     "Leavitt Software Solutions"
@@ -11,12 +11,7 @@
     "lss"
   ],
   "main": "lss-profile-picture.html",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:LssPolymerElements/profile-picture.git"
-  },
   "license": "MIT",
-  "homepage": "https://www.webcomponents.org/element/LssPolymerElements/profile-picture",
   "ignore": [
     "node_modules",
     "bower_components",

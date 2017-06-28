@@ -35,13 +35,9 @@ let LSSProfilePicture = class LSSProfilePicture extends Polymer.Element {
         return false;
     }
     getSrc(personId, size) {
-        console.log("getSrc");
         const largerSize = size * 1.2; //Grabs a larger picture than needed to reduce pixelation 
         var baseUrl = this.isDev() ? "https://devapi2.leavitt.com/" : "https://api2.leavitt.com/";
         return `${baseUrl}People(${personId})/Default.Picture(size=${largerSize})`;
-    }
-    pIdChanged(val, old) {
-        console.log(val, old);
     }
 };
 __decorate([
@@ -68,12 +64,6 @@ __decorate([
     __metadata("design:paramtypes", [Number, Number]),
     __metadata("design:returntype", void 0)
 ], LSSProfilePicture.prototype, "getSrc", null);
-__decorate([
-    observe("url"),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, String]),
-    __metadata("design:returntype", void 0)
-], LSSProfilePicture.prototype, "pIdChanged", null);
 LSSProfilePicture = __decorate([
     customElement("lss-profile-picture"),
     __metadata("design:paramtypes", [])
