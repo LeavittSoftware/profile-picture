@@ -9,11 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 let LSSProfilePicture = class LSSProfilePicture extends Polymer.Element {
     constructor() {
-        super();
+        super(...arguments);
         this.personId = 44;
         this.shape = "circle";
         this.size = 60;
-        console.log("What");
     }
     _sizeChanged() {
         this.style.width = this.size + 'px';
@@ -65,6 +64,5 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], LSSProfilePicture.prototype, "getSrc", null);
 LSSProfilePicture = __decorate([
-    customElement("lss-profile-picture"),
-    __metadata("design:paramtypes", [])
+    customElement("lss-profile-picture")
 ], LSSProfilePicture);
