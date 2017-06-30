@@ -1,0 +1,33 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../lss-profile-picture.html">
+<link rel="import" href="../lss-profile-picture-menu.html">
+<link rel="import" href="../../lss-iron-demo-helpers/demo-pages-shared-styles.html">
+<link rel="import" href="../../lss-iron-demo-helpers/demo-snippet.html">
+
+<dom-module id="x-demo">
+    <template>
+
+        <h3>LSS Profile Picture Demo</h3>
+        <demo-snippet>
+            <code>
+                <lss-profile-picture shape="square" person-id="11056"></lss-profile-picture>
+      </code>
+        </demo-snippet>
+
+        <h3>LSS Profile Picture Menu Demo</h3>
+        <demo-snippet>
+            <code>
+        <lss-profile-picture-menu person-id="11056"></lss-profile-picture-menu>
+      </code>
+        </demo-snippet>
+
+    </template>
+    <script>
+        class XDemo extends Polymer.Element {
+            static get is() {
+                return 'x-demo';
+            }
+        }
+        customElements.define(XDemo.is, XDemo);
+    </script>
+</dom-module>

@@ -8,6 +8,7 @@
 <link rel="import" href="../paper-button/paper-button.html">
 <link rel="import" href="../lss-inject/lss-requester-behavior.html">
 <link rel="import" href="./lss-profile-picture.html">
+<link rel="import" href="../polymer/lib/mixins/gesture-event-listeners.html">
 
 <dom-module id="lss-profile-picture-menu">
 	<template>
@@ -70,7 +71,7 @@
 				@apply --layout-end-justified;
 			}
 
-			paper-button#my-account-button {
+			paper-button#myAccountButton {
 				background-color: var(--paper-blue-500);
 				color: white;
 				--paper-button-raised-keyboard-focus: {
@@ -89,7 +90,7 @@
 						<div class="my-account-info">
 							<div class="full-name">{{fullname}}</div>
 							<div class="sub-head">Leavitt Group Account</div>
-							<paper-button id="my-account-button" flat>My Account</paper-button>
+							<paper-button id="myAccountButton" flat>My Account</paper-button>
 						</div>
 					</div>
 					<div class="my-account-buttons">
