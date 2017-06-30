@@ -1,6 +1,6 @@
 {
   "name": "profile-picture",
-  "version": "2.0.1",
+  "version": "2.0.6",
   "description": "Leavitt Profile Picture for Polymer 2",
   "main": "profile-picture.html",
   "dependencies": {},
