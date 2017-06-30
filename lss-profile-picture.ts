@@ -40,18 +40,10 @@ class LSSProfilePicture extends Polymer.Element {
         return false;
     }
 
-    @observe('personId, size')
+    @computed('src')
     getSrc(personId: number, size: number) {
         const largerSize = size * 1.2;  //Grabs a larger picture than needed to reduce pixelation 
         var baseUrl = this.isDev() ? "https://devapi2.leavitt.com/" : "https://api2.leavitt.com/";
-        this.set("src", `${baseUrl}People(${personId})/Default.Picture(size=${largerSize})`)
+        return `${baseUrl}People(${personId})/Default.Picture(size=${largerSize})`;
     }
-
-
-    // @computed('src')
-    // getSrc(personId: number, size: number) {
-    //     const largerSize = size * 1.2;  //Grabs a larger picture than needed to reduce pixelation 
-    //     var baseUrl = this.isDev() ? "https://devapi2.leavitt.com/" : "https://api2.leavitt.com/";
-    //     return `${baseUrl}People(${personId})/Default.Picture(size=${largerSize})`;
-    // }
 }

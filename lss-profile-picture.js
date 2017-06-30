@@ -13,12 +13,6 @@ let LSSProfilePicture = class LSSProfilePicture extends Polymer.Element {
         this.personId = 44;
         this.shape = "circle";
         this.size = 60;
-        // @computed('src')
-        // getSrc(personId: number, size: number) {
-        //     const largerSize = size * 1.2;  //Grabs a larger picture than needed to reduce pixelation 
-        //     var baseUrl = this.isDev() ? "https://devapi2.leavitt.com/" : "https://api2.leavitt.com/";
-        //     return `${baseUrl}People(${personId})/Default.Picture(size=${largerSize})`;
-        // }
     }
     _sizeChanged() {
         this.style.width = this.size + 'px';
@@ -42,7 +36,7 @@ let LSSProfilePicture = class LSSProfilePicture extends Polymer.Element {
     getSrc(personId, size) {
         const largerSize = size * 1.2; //Grabs a larger picture than needed to reduce pixelation 
         var baseUrl = this.isDev() ? "https://devapi2.leavitt.com/" : "https://api2.leavitt.com/";
-        this.set("src", `${baseUrl}People(${personId})/Default.Picture(size=${largerSize})`);
+        return `${baseUrl}People(${personId})/Default.Picture(size=${largerSize})`;
     }
 };
 __decorate([
@@ -68,7 +62,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], LSSProfilePicture.prototype, "_sizeChanged", null);
 __decorate([
-    observe('personId, size'),
+    computed('src'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number, Number]),
     __metadata("design:returntype", void 0)

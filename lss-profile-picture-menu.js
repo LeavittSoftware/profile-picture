@@ -14,34 +14,24 @@ let LssProfilePictureMenu = class LssProfilePictureMenu extends LssRequesterBeha
     }
     ready() {
         super.ready();
-        this.addEventListener('iron-overlay-canceled', (e) => this.canceled(e));
-        Polymer.Gestures.addListener(this.$.profilePicture, 'tap', e => this.clickHandler(e));
-        Polymer.Gestures.addListener(this.$.signout, 'tap', e => this.signoutClickHandler(e));
-        Polymer.Gestures.addListener(this.$.myAccountButton, 'tap', e => this.myAccountClickHandler(e));
     }
     refresh() {
         this.$.profilePicture.refresh();
         this.$.innerProfilePicture.refresh();
     }
-    // @gestureListen("tap", "profilePicture")
     clickHandler(e) {
-        console.log("clicked");
         const dialog = this.$.dialog;
         dialog.positionTarget = this.$.profilePicture;
         dialog.toggle();
     }
-    // @gestureListen("tap", "my-account-button")
     myAccountClickHandler(e) {
         window.open("https://accounts.leavitt.com/", "_blank");
     }
-    // @gestureListen("tap", "signout")
     signoutClickHandler(e) {
         this.userManager = this.requestInstance("UserManager");
         this.userManager.logoutAsync();
     }
-    // @listen("iron-overlay-canceled")
     canceled(event) {
-        console.log("iron-overlay-canceled listener called.");
         if (this.hovered)
             event.preventDefault();
     }
@@ -64,6 +54,42 @@ __decorate([
     property({ notify: true }),
     __metadata("design:type", String)
 ], LssProfilePictureMenu.prototype, "fullname", void 0);
+__decorate([
+    gestureListen("tap", "profilePicture"),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], LssProfilePictureMenu.prototype, "clickHandler", null);
+__decorate([
+    gestureListen("tap", "myAccountButton"),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], LssProfilePictureMenu.prototype, "myAccountClickHandler", null);
+__decorate([
+    gestureListen("tap", "signout"),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], LssProfilePictureMenu.prototype, "signoutClickHandler", null);
+__decorate([
+    listen("iron-overlay-canceled"),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], LssProfilePictureMenu.prototype, "canceled", null);
+__decorate([
+    listen("mouseover", "profilePicture"),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], LssProfilePictureMenu.prototype, "onHovered", null);
+__decorate([
+    listen("mouseout", "profilePicture"),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], LssProfilePictureMenu.prototype, "onUnhovered", null);
 LssProfilePictureMenu = __decorate([
     customElement("lss-profile-picture-menu")
 ], LssProfilePictureMenu);
