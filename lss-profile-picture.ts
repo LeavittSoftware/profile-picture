@@ -1,11 +1,11 @@
-﻿@customElement("lss-profile-picture")
+﻿@customElement('lss-profile-picture')
 class LSSProfilePicture extends Polymer.Element {
 
     @property({ notify: true })
     personId: number = 44;
 
     @property({ reflectToAttribute: true })
-    shape: string = "circle";
+    shape: string = 'circle';
 
     @property()
     size: number = 60;
@@ -20,7 +20,7 @@ class LSSProfilePicture extends Polymer.Element {
     }
 
     public refresh() {
-        var personId = this.personId;
+        let personId = this.personId;
         this.set('personId', 0);
         this.set('personId', personId);
     }
@@ -31,10 +31,10 @@ class LSSProfilePicture extends Polymer.Element {
             return true;
 
         const host = document.location.host;
-        if (host.indexOf("dev") !== -1)
+        if (host.indexOf('dev') !== -1)
             return true;
 
-        if (host.indexOf("localhost") !== -1)
+        if (host.indexOf('localhost') !== -1)
             return true;
 
         return false;
@@ -42,8 +42,8 @@ class LSSProfilePicture extends Polymer.Element {
 
     @computed('src')
     getSrc(personId: number, size: number) {
-        const largerSize = size * 1.2;  //Grabs a larger picture than needed to reduce pixelation 
-        var baseUrl = this.isDev() ? "https://devapi2.leavitt.com/" : "https://api2.leavitt.com/";
+        const largerSize = size * 1.2;  //Grabs a larger picture than needed to reduce pixelation
+        let baseUrl = this.isDev() ? 'https://devapi2.leavitt.com/' : 'https://api2.leavitt.com/';
         return `${baseUrl}People(${personId})/Default.Picture(size=${largerSize})`;
     }
 }

@@ -25,10 +25,10 @@ let LssProfilePictureMenu = class LssProfilePictureMenu extends LssRequesterBeha
         dialog.toggle();
     }
     myAccountClickHandler(e) {
-        window.open("https://accounts.leavitt.com/", "_blank");
+        window.open('https://accounts.leavitt.com/', '_blank');
     }
     signoutClickHandler(e) {
-        this.userManager = this.requestInstance("UserManager");
+        this.userManager = this.requestInstance('UserManager');
         this.userManager.logoutAsync();
     }
     canceled(event) {
@@ -55,41 +55,41 @@ __decorate([
     __metadata("design:type", String)
 ], LssProfilePictureMenu.prototype, "fullname", void 0);
 __decorate([
-    gestureListen("tap", "profilePicture"),
+    gestureListen('tap', 'profilePicture'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], LssProfilePictureMenu.prototype, "clickHandler", null);
 __decorate([
-    gestureListen("tap", "myAccountButton"),
+    gestureListen('tap', 'myAccountButton'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], LssProfilePictureMenu.prototype, "myAccountClickHandler", null);
 __decorate([
-    gestureListen("tap", "signout"),
+    gestureListen('tap', 'signout'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], LssProfilePictureMenu.prototype, "signoutClickHandler", null);
 __decorate([
-    listen("iron-overlay-canceled"),
+    listen('iron-overlay-canceled'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], LssProfilePictureMenu.prototype, "canceled", null);
 __decorate([
-    listen("mouseover", "profilePicture"),
+    listen('mouseover', 'profilePicture'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], LssProfilePictureMenu.prototype, "onHovered", null);
 __decorate([
-    listen("mouseout", "profilePicture"),
+    listen('mouseout', 'profilePicture'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], LssProfilePictureMenu.prototype, "onUnhovered", null);
 LssProfilePictureMenu = __decorate([
-    customElement("lss-profile-picture-menu")
+    customElement('lss-profile-picture-menu')
 ], LssProfilePictureMenu);
