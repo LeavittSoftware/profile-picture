@@ -1,4 +1,4 @@
-﻿@customElement("lss-profile-picture-menu")
+﻿@customElement('lss-profile-picture-menu')
 class LssProfilePictureMenu extends LssRequesterBehavior(Polymer.mixinBehaviors([Polymer.GestureEventListeners], Polymer.Element)) {
 
     @property({ notify: true })
@@ -21,37 +21,37 @@ class LssProfilePictureMenu extends LssRequesterBehavior(Polymer.mixinBehaviors(
         this.$.innerProfilePicture.refresh();
     }
 
-    @gestureListen("tap", "profilePicture")
+    @gestureListen('tap', 'profilePicture')
     clickHandler(e: any) {
         const dialog: any = this.$.dialog;
         dialog.positionTarget = this.$.profilePicture;
         dialog.toggle();
     }
 
-    @gestureListen("tap", "myAccountButton")
+    @gestureListen('tap', 'myAccountButton')
     myAccountClickHandler(e: any) {
-        window.open("https://accounts.leavitt.com/", "_blank");
+        window.open('https://accounts.leavitt.com/', '_blank');
     }
 
-    @gestureListen("tap", "signout")
+    @gestureListen('tap', 'signout')
     signoutClickHandler(e: any) {
-        this.userManager = this.requestInstance("UserManager");
+        this.userManager = this.requestInstance('UserManager');
         this.userManager.logoutAsync();
     }
 
-    @listen("iron-overlay-canceled")
+    @listen('iron-overlay-canceled')
     canceled(event: any) {
         if (this.hovered)
             event.preventDefault();
     }
 
 
-    @listen("mouseover", "profilePicture")
+    @listen('mouseover', 'profilePicture')
     onHovered() {
         this.hovered = true;
     }
 
-    @listen("mouseout", "profilePicture")
+    @listen('mouseout', 'profilePicture')
     onUnhovered() {
         this.hovered = false;
     }
