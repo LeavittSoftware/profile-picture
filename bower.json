@@ -10,6 +10,7 @@
     "leavitt software",
     "lss"
   ],
+  "homepage": "https://github.com/LssPolymerElements/profile-picture",
   "main": "lss-profile-picture.html",
   "license": "MIT",
   "ignore": [

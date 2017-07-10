@@ -14,15 +14,16 @@ To install use: `bower install --save lss-profile-picture`
     <link rel="import" href="lss-profile-picture-menu.html">
     <link rel="import" href="lss-profile-picture.html">
         <style is="custom-style" include="demo-pages-shared-styles">
-            .vertical-section-container {
-                max-width: 500px;
-            }
-
+            
             lss-profile-picture-menu[person-id="771130"] {
                 --lss-profile-picture-menu-button-background-color: var(--paper-indigo-500);
                 --lss-profile-picture-menu-button-color: #fff;
                 --lss-profile-picture-signout-button-background-color: var(--paper-pink-a200);
                 --lss-profile-picture-signout-button-color: #fff;
+            }
+
+            lss-profile-picture-menu {
+              margin-bottom: 200px;
             }
         </style>
     <next-code-block></next-code-block>
