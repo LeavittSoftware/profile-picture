@@ -62,7 +62,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], LSSProfilePicture.prototype, "_sizeChanged", null);
 __decorate([
-    computed('src'),
+    computed('src', ['personId', 'size']),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number, Number]),
     __metadata("design:returntype", void 0)

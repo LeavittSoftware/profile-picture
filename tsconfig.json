@@ -16,5 +16,9 @@
     "node_modules",
     "bower_components/reflect-metadata/",
     "bower_components/hydrolysis"
+  ],
+  "include": [
+    "bower_components/**/*.ts",
+    "*.ts"
   ]
 }
