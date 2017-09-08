@@ -1,11 +1,14 @@
 ﻿@customElement('lss-profile-picture-menu')
-class LssProfilePictureMenu extends LssRequesterBehavior(Polymer.mixinBehaviors([Polymer.GestureEventListeners], Polymer.Element)) {
+class LssProfilePictureMenu extends Polymer.LazyImportsMixin(LssRequesterBehavior(Polymer.mixinBehaviors([Polymer.GestureEventListeners], Polymer.Element))) {
 
     @property({ notify: true })
     userManager: any;
 
     @property({ notify: true })
     personId: number;
+
+    @property()
+    lazyPersonId: number = 0;
 
     @property({ notify: true })
     fullname: string;
@@ -22,8 +25,11 @@ class LssProfilePictureMenu extends LssRequesterBehavior(Polymer.mixinBehaviors(
     }
 
     @gestureListen('tap', 'profilePicture')
-    clickHandler(e: any) {
+    async clickHandler(e: any) {
+        let results = await this.importLazyGroup('menu');
         const dialog: any = this.$.dialog;
+        this.lazyPersonId = this.personId;
+        dialog.removeAttribute('unresolved');
         dialog.positionTarget = this.$.profilePicture;
         dialog.toggle();
     }
@@ -44,7 +50,6 @@ class LssProfilePictureMenu extends LssRequesterBehavior(Polymer.mixinBehaviors(
         if (this.hovered)
             event.preventDefault();
     }
-
 
     @listen('mouseover', 'profilePicture')
     onHovered() {

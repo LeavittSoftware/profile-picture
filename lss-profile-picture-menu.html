@@ -1,16 +1,18 @@
 ﻿<link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../polymer2-ts/polymer2-ts.html">
+<link rel="import" href="../lazy-imports/lazy-imports-mixin.html">
 
-<link rel="import" href="../paper-dialog/paper-dialog.html">
-<link rel="import" href="../neon-animation/animations/fade-in-animation.html">
-<link rel="import" href="../neon-animation/animations/fade-out-animation.html">
-<link rel="import" href="../neon-animation/web-animations.html">
-<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../polymer/lib/elements/dom-if.html">
+
 <link rel="import" href="../lss-inject/lss-requester-behavior.html">
-<link rel="import" href="./lss-profile-picture.html">
 <link rel="import" href="../polymer/lib/mixins/gesture-event-listeners.html">
+<link rel="import" href="./lss-profile-picture.html">
+
 
 <dom-module id="lss-profile-picture-menu">
+
+	<link rel="lazy-import" group="menu" href="../paper-dialog/paper-dialog.html">
+	<link rel="lazy-import" group="menu" href="../paper-button/paper-button.html">
 	<template>
 		<style>
 			:host {
@@ -93,13 +95,17 @@
 				}
 				;
 			}
+
+			[unresolved] {
+				display: none;
+			}
 		</style>
 		<section>
-			<paper-dialog id="dialog" no-overlap horizontal-align="right" vertical-align="top" entry-animation="fade-in-animation" exit-animation="fade-out-animation">
+			<paper-dialog unresolved id="dialog" no-overlap horizontal-align="right" vertical-align="top">
 				<div id="my-account-box">
 					<div class="arrow-up"></div>
 					<div class="my-account-person">
-						<lss-profile-picture src="{{src}}" person-id="[[personId]]" shape="circle" size="75"></lss-profile-picture>
+						<lss-profile-picture person-id="[[personId]]" shape="circle" size="75"></lss-profile-picture>
 						<div class="my-account-info">
 							<div class="full-name">{{fullname}}</div>
 							<div class="sub-head">Leavitt Group Account</div>
@@ -111,7 +117,7 @@
 					</div>
 				</div>
 			</paper-dialog>
-			<lss-profile-picture src="{{src}}" person-id="[[personId]]" id="profilePicture" shape="circle" size="40"></lss-profile-picture>
+			<lss-profile-picture person-id="[[personId]]" id="profilePicture" shape="circle" size="40"></lss-profile-picture>
 		</section>
 	</template>
 	<script type="text/javascript" src="lss-profile-picture-menu.js">

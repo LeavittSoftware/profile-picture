@@ -7,9 +7,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-let LssProfilePictureMenu = class LssProfilePictureMenu extends LssRequesterBehavior(Polymer.mixinBehaviors([Polymer.GestureEventListeners], Polymer.Element)) {
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+let LssProfilePictureMenu = class LssProfilePictureMenu extends Polymer.LazyImportsMixin(LssRequesterBehavior(Polymer.mixinBehaviors([Polymer.GestureEventListeners], Polymer.Element))) {
     constructor() {
         super(...arguments);
+        this.lazyPersonId = 0;
         this.hovered = false;
     }
     ready() {
@@ -20,9 +29,14 @@ let LssProfilePictureMenu = class LssProfilePictureMenu extends LssRequesterBeha
         this.$.innerProfilePicture.refresh();
     }
     clickHandler(e) {
-        const dialog = this.$.dialog;
-        dialog.positionTarget = this.$.profilePicture;
-        dialog.toggle();
+        return __awaiter(this, void 0, void 0, function* () {
+            let results = yield this.importLazyGroup('menu');
+            const dialog = this.$.dialog;
+            this.lazyPersonId = this.personId;
+            dialog.removeAttribute('unresolved');
+            dialog.positionTarget = this.$.profilePicture;
+            dialog.toggle();
+        });
     }
     myAccountClickHandler(e) {
         window.open('https://accounts.leavitt.com/', '_blank');
@@ -51,6 +65,10 @@ __decorate([
     __metadata("design:type", Number)
 ], LssProfilePictureMenu.prototype, "personId", void 0);
 __decorate([
+    property(),
+    __metadata("design:type", Number)
+], LssProfilePictureMenu.prototype, "lazyPersonId", void 0);
+__decorate([
     property({ notify: true }),
     __metadata("design:type", String)
 ], LssProfilePictureMenu.prototype, "fullname", void 0);
@@ -58,7 +76,7 @@ __decorate([
     gestureListen('tap', 'profilePicture'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], LssProfilePictureMenu.prototype, "clickHandler", null);
 __decorate([
     gestureListen('tap', 'myAccountButton'),
