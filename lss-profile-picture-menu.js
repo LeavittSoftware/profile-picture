@@ -15,7 +15,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-let LssProfilePictureMenu = class LssProfilePictureMenu extends Polymer.LazyImportsMixin(LssRequesterBehavior(Polymer.mixinBehaviors([Polymer.GestureEventListeners], Polymer.Element))) {
+let LssProfilePictureMenu = class LssProfilePictureMenu extends Polymer.LazyImportsMixin(TitaniumRequesterMixin(Polymer.mixinBehaviors([Polymer.GestureEventListeners], Polymer.Element))) {
     constructor() {
         super(...arguments);
         this.lazyPersonId = 0;
@@ -42,8 +42,10 @@ let LssProfilePictureMenu = class LssProfilePictureMenu extends Polymer.LazyImpo
         window.open('https://accounts.leavitt.com/', '_blank');
     }
     signoutClickHandler(e) {
-        this.userManager = this.requestInstance('UserManager');
-        this.userManager.logoutAsync();
+        return __awaiter(this, void 0, void 0, function* () {
+            let userManager = yield this.requestInstance('UserManager');
+            userManager.logoutAsync();
+        });
     }
     canceled(event) {
         if (this.hovered)
@@ -56,10 +58,6 @@ let LssProfilePictureMenu = class LssProfilePictureMenu extends Polymer.LazyImpo
         this.hovered = false;
     }
 };
-__decorate([
-    property({ notify: true }),
-    __metadata("design:type", Object)
-], LssProfilePictureMenu.prototype, "userManager", void 0);
 __decorate([
     property({ notify: true }),
     __metadata("design:type", Number)
@@ -88,7 +86,7 @@ __decorate([
     gestureListen('tap', 'signout'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], LssProfilePictureMenu.prototype, "signoutClickHandler", null);
 __decorate([
     listen('iron-overlay-canceled'),

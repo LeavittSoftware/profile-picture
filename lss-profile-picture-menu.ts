@@ -1,8 +1,5 @@
 ﻿@customElement('lss-profile-picture-menu')
-class LssProfilePictureMenu extends Polymer.LazyImportsMixin(LssRequesterBehavior(Polymer.mixinBehaviors([Polymer.GestureEventListeners], Polymer.Element))) {
-
-    @property({ notify: true })
-    userManager: any;
+class LssProfilePictureMenu extends Polymer.LazyImportsMixin(TitaniumRequesterMixin(Polymer.mixinBehaviors([Polymer.GestureEventListeners], Polymer.Element))) {
 
     @property({ notify: true })
     personId: number;
@@ -40,9 +37,9 @@ class LssProfilePictureMenu extends Polymer.LazyImportsMixin(LssRequesterBehavio
     }
 
     @gestureListen('tap', 'signout')
-    signoutClickHandler(e: any) {
-        this.userManager = this.requestInstance('UserManager');
-        this.userManager.logoutAsync();
+    async signoutClickHandler(e: any) {
+        let userManager = await this.requestInstance('UserManager');
+        userManager.logoutAsync();
     }
 
     @listen('iron-overlay-canceled')
