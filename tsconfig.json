@@ -5,10 +5,22 @@
     "target": "es5",
     "noImplicitAny": false,
     "experimentalDecorators": true,
-    "moduleResolution": "node"
- },
+    "moduleResolution": "node",
+    "lib": [
+      "es2015.promise",
+      "dom",
+      "es5"
+    ]
+  },
   "compileOnSave": true,
+  "include": [
+    "bower_components/**/*.ts",
+    "*.ts"
+  ],
   "exclude": [
-    "build"
+    "build",
+    "node_modules",
+    "bower_components/**/demo/*",
+    "bower_components/**/test/*"
   ]
 }

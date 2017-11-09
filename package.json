@@ -6,10 +6,10 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {
-    "@types/es6-promise": "0.0.28"
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "2.3.4"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

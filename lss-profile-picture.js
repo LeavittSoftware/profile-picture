@@ -31,7 +31,7 @@ var LSSProfilePicture = (function (_super) {
     };
     LSSProfilePicture.prototype.setUrl = function (personId) {
         var baseUrl = this.isDev() ? "https://devapi2.leavitt.com/" : "https://api2.leavitt.com/";
-        this.src = baseUrl + "People(" + personId + ")/Default.Picture(size=256)";
+        this.src = baseUrl + "People(" + personId + ")/Default.Picture(size=" + this.size + "})";
     };
     LSSProfilePicture.prototype.randomId = function (shape) {
         return shape + "-" + Math.random().toString(36).substr(2, 4);

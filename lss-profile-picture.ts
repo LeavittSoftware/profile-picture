@@ -62,7 +62,7 @@ class LSSProfilePicture extends polymer.Base {
     @observe("personId")
     private setUrl(personId: number) {
         var baseUrl = this.isDev() ? "https://devapi2.leavitt.com/" : "https://api2.leavitt.com/";
-        this.src = `${baseUrl}People(${personId})/Default.Picture(size=256)`;
+        this.src = `${baseUrl}People(${personId})/Default.Picture(size=${this.size}})`;
     }
 
     private randomId(shape) {
