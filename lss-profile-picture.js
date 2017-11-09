@@ -29,9 +29,12 @@ var LSSProfilePicture = (function (_super) {
             return true;
         return false;
     };
-    LSSProfilePicture.prototype.setUrl = function (personId) {
+    LSSProfilePicture.prototype.setUrl = function (personId, size) {
+        if (!size || !personId)
+            return;
+        var largerSize = size * 1.2;
         var baseUrl = this.isDev() ? "https://devapi2.leavitt.com/" : "https://api2.leavitt.com/";
-        this.src = baseUrl + "People(" + personId + ")/Default.Picture(size=" + this.size + ")";
+        this.src = baseUrl + "People(" + personId + ")/Default.Picture(size=" + largerSize + ")";
     };
     LSSProfilePicture.prototype.randomId = function (shape) {
         return shape + "-" + Math.random().toString(36).substr(2, 4);
@@ -82,7 +85,7 @@ __decorate([
     })
 ], LSSProfilePicture.prototype, "src", void 0);
 __decorate([
-    observe("personId")
+    observe("personId,size")
 ], LSSProfilePicture.prototype, "setUrl", null);
 LSSProfilePicture = __decorate([
     component("lss-profile-picture")
