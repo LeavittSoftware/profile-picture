@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+const { customElement, property, observe, listen } = Polymer.decorators;
 let LSSProfilePicture = class LSSProfilePicture extends Polymer.Element {
     constructor() {
         super(...arguments);
@@ -19,7 +20,7 @@ let LSSProfilePicture = class LSSProfilePicture extends Polymer.Element {
         this.style.height = this.size + 'px';
     }
     refresh() {
-        let personId = this.personId;
+        const personId = this.personId;
         this.set('personId', 0);
         this.set('personId', personId);
     }
@@ -34,25 +35,25 @@ let LSSProfilePicture = class LSSProfilePicture extends Polymer.Element {
         return false;
     }
     getSrc(personId, size) {
-        const largerSize = size * 1.2; //Grabs a larger picture than needed to reduce pixelation
-        let baseUrl = this.isDev() ? 'https://devapi2.leavitt.com/' : 'https://api2.leavitt.com/';
+        const largerSize = size * 1.2; // Grabs a larger picture than needed to reduce pixelation
+        const baseUrl = this.isDev() ? 'https://devapi2.leavitt.com/' : 'https://api2.leavitt.com/';
         this.src = `${baseUrl}People(${personId})/Default.Picture(size=${largerSize})`;
     }
 };
 __decorate([
-    property({ notify: true }),
+    property({ type: Number, notify: true }),
     __metadata("design:type", Number)
 ], LSSProfilePicture.prototype, "personId", void 0);
 __decorate([
-    property({ reflectToAttribute: true }),
+    property({ type: String, reflectToAttribute: true }),
     __metadata("design:type", String)
 ], LSSProfilePicture.prototype, "shape", void 0);
 __decorate([
-    property(),
+    property({ type: Number }),
     __metadata("design:type", Number)
 ], LSSProfilePicture.prototype, "size", void 0);
 __decorate([
-    property(),
+    property({ type: String }),
     __metadata("design:type", String)
 ], LSSProfilePicture.prototype, "src", void 0);
 __decorate([

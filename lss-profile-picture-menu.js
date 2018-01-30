@@ -15,26 +15,24 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-let LssProfilePictureMenu = class LssProfilePictureMenu extends Polymer.LazyImportsMixin(TitaniumRequesterMixin(Polymer.mixinBehaviors([Polymer.GestureEventListeners], Polymer.Element))) {
+let LssProfilePictureMenu = class LssProfilePictureMenu extends Polymer.LazyImportsMixin(Polymer.DeclarativeEventListeners(Polymer.Element)) {
     constructor() {
         super(...arguments);
         this.lazyPersonId = 0;
-        this.hovered = false;
-    }
-    ready() {
-        super.ready();
     }
     refresh() {
-        this.$.profilePicture.refresh();
-        this.$.innerProfilePicture.refresh();
+        const profilePicture = this.$.profilePicture;
+        const innerProfilePicture = this.$.innerProfilePicture;
+        innerProfilePicture.refresh();
+        profilePicture.refresh();
     }
     clickHandler(e) {
         return __awaiter(this, void 0, void 0, function* () {
-            let results = yield this.importLazyGroup('menu');
+            yield this.importLazyGroup('menu');
             const dialog = this.$.dialog;
-            this.lazyPersonId = this.personId;
-            dialog.removeAttribute('unresolved');
             dialog.positionTarget = this.$.profilePicture;
+            this.lazyPersonId = this.personId;
+            this.$.dialog.removeAttribute('unresolved');
             dialog.toggle();
         });
     }
@@ -43,69 +41,41 @@ let LssProfilePictureMenu = class LssProfilePictureMenu extends Polymer.LazyImpo
     }
     signoutClickHandler(e) {
         return __awaiter(this, void 0, void 0, function* () {
-            let userManager = yield this.requestInstance('UserManager');
-            userManager.logoutAsync();
+            const options = { bubbles: true, composed: true };
+            this.dispatchEvent(new CustomEvent('logout', options));
         });
-    }
-    canceled(event) {
-        if (this.hovered)
-            event.preventDefault();
-    }
-    onHovered() {
-        this.hovered = true;
-    }
-    onUnhovered() {
-        this.hovered = false;
     }
 };
 __decorate([
-    property({ notify: true }),
+    property({ type: Number, notify: true }),
     __metadata("design:type", Number)
 ], LssProfilePictureMenu.prototype, "personId", void 0);
 __decorate([
-    property(),
+    property({ type: Number }),
     __metadata("design:type", Number)
 ], LssProfilePictureMenu.prototype, "lazyPersonId", void 0);
 __decorate([
-    property({ notify: true }),
+    property({ type: String, notify: true }),
     __metadata("design:type", String)
 ], LssProfilePictureMenu.prototype, "fullname", void 0);
 __decorate([
-    gestureListen('tap', 'profilePicture'),
+    listen('click', 'profilePicture'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], LssProfilePictureMenu.prototype, "clickHandler", null);
 __decorate([
-    gestureListen('tap', 'myAccountButton'),
+    listen('click', 'myAccountButton'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], LssProfilePictureMenu.prototype, "myAccountClickHandler", null);
 __decorate([
-    gestureListen('tap', 'signout'),
+    listen('click', 'signout'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], LssProfilePictureMenu.prototype, "signoutClickHandler", null);
-__decorate([
-    listen('iron-overlay-canceled'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
-], LssProfilePictureMenu.prototype, "canceled", null);
-__decorate([
-    listen('mouseover', 'profilePicture'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], LssProfilePictureMenu.prototype, "onHovered", null);
-__decorate([
-    listen('mouseout', 'profilePicture'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], LssProfilePictureMenu.prototype, "onUnhovered", null);
 LssProfilePictureMenu = __decorate([
     customElement('lss-profile-picture-menu')
 ], LssProfilePictureMenu);

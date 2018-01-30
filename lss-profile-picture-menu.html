@@ -1,16 +1,10 @@
 ﻿<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../polymer2-ts/polymer2-ts.html">
+<link rel="import" href="../polymer-decorators/polymer-decorators.html">
 <link rel="import" href="../lazy-imports/lazy-imports-mixin.html">
-
-<link rel="import" href="../polymer/lib/elements/dom-if.html">
-
-<link rel="import" href="../titanium-dependency-injection/titanium-requester-mixin.html">
-<link rel="import" href="../polymer/lib/mixins/gesture-event-listeners.html">
+<link rel="import" href="../polymer-decorators/mixins/declarative-event-listeners.html">
 <link rel="import" href="./lss-profile-picture.html">
 
-
 <dom-module id="lss-profile-picture-menu">
-
 	<link rel="lazy-import" group="menu" href="../paper-dialog/paper-dialog.html">
 	<link rel="lazy-import" group="menu" href="../paper-button/paper-button.html">
 	<template>
@@ -105,15 +99,15 @@
 				<div id="my-account-box">
 					<div class="arrow-up"></div>
 					<div class="my-account-person">
-						<lss-profile-picture person-id="[[personId]]" shape="circle" size="75"></lss-profile-picture>
+						<lss-profile-picture id="innerProfilePicture" person-id="[[personId]]" shape="circle" size="75"></lss-profile-picture>
 						<div class="my-account-info">
 							<div class="full-name">{{fullname}}</div>
 							<div class="sub-head">Leavitt Group Account</div>
-							<paper-button id="myAccountButton" flat>My Account</paper-button>
 						</div>
 					</div>
 					<div class="my-account-buttons">
-						<paper-button id="signout" raised>Sign out</paper-button>
+						<paper-button id="signout">Logout</paper-button>
+						<paper-button id="myAccountButton" flat>My Account</paper-button>
 					</div>
 				</div>
 			</paper-dialog>

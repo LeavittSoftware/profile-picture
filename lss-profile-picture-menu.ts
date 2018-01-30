@@ -1,60 +1,41 @@
-﻿@customElement('lss-profile-picture-menu')
-class LssProfilePictureMenu extends Polymer.LazyImportsMixin(TitaniumRequesterMixin(Polymer.mixinBehaviors([Polymer.GestureEventListeners], Polymer.Element))) {
+﻿
+@customElement('lss-profile-picture-menu')
+class LssProfilePictureMenu extends Polymer.LazyImportsMixin
+(Polymer.DeclarativeEventListeners(Polymer.Element)) {
+  @property({type: Number, notify: true})
+  personId: number;
 
-    @property({ notify: true })
-    personId: number;
+  @property({type: Number})
+  lazyPersonId: number = 0;
 
-    @property()
-    lazyPersonId: number = 0;
+  @property({type: String, notify: true})
+  fullname: string;
 
-    @property({ notify: true })
-    fullname: string;
+  refresh() {
+    const profilePicture = this.$.profilePicture as any;
+    const innerProfilePicture = this.$.innerProfilePicture as any;
+    innerProfilePicture.refresh();
+    profilePicture.refresh();
+  }
 
-    private hovered = false;
+  @listen('click', 'profilePicture')
+  async clickHandler(e: any) {
+    await this.importLazyGroup('menu');
+    const dialog = this.$.dialog as any;
+    dialog.positionTarget = this.$.profilePicture;
+    this.lazyPersonId = this.personId;
+    this.$.dialog.removeAttribute('unresolved');
+    dialog.toggle();
+  }
 
-    ready() {
-        super.ready();
-    }
+  @listen('click', 'myAccountButton')
+  myAccountClickHandler(e: any) {
+    window.open('https://accounts.leavitt.com/', '_blank');
+  }
 
-    refresh() {
-        this.$.profilePicture.refresh();
-        this.$.innerProfilePicture.refresh();
-    }
-
-    @gestureListen('tap', 'profilePicture')
-    async clickHandler(e: any) {
-        let results = await this.importLazyGroup('menu');
-        const dialog: any = this.$.dialog;
-        this.lazyPersonId = this.personId;
-        dialog.removeAttribute('unresolved');
-        dialog.positionTarget = this.$.profilePicture;
-        dialog.toggle();
-    }
-
-    @gestureListen('tap', 'myAccountButton')
-    myAccountClickHandler(e: any) {
-        window.open('https://accounts.leavitt.com/', '_blank');
-    }
-
-    @gestureListen('tap', 'signout')
-    async signoutClickHandler(e: any) {
-        let userManager = await this.requestInstance('UserManager');
-        userManager.logoutAsync();
-    }
-
-    @listen('iron-overlay-canceled')
-    canceled(event: any) {
-        if (this.hovered)
-            event.preventDefault();
-    }
-
-    @listen('mouseover', 'profilePicture')
-    onHovered() {
-        this.hovered = true;
-    }
-
-    @listen('mouseout', 'profilePicture')
-    onUnhovered() {
-        this.hovered = false;
-    }
+  @listen('click', 'signout')
+  async signoutClickHandler(e: any) {
+    const options = {bubbles: true, composed: true};
+    this.dispatchEvent(new CustomEvent('logout', options));
+  }
 }
