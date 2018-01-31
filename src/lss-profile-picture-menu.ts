@@ -1,13 +1,13 @@
-﻿@customElement('lss-profile-picture-menu')
+﻿@Polymer.decorators.customElement('lss-profile-picture-menu')
 class LssProfilePictureMenu extends Polymer.GestureEventListeners
 (Polymer.LazyImportsMixin(Polymer.DeclarativeEventListeners(Polymer.Element))) {
-  @property({type: Number, notify: true})
+  @Polymer.decorators.property({type: Number, notify: true})
   personId: number;
 
-  @property({type: Number})
+  @Polymer.decorators.property({type: Number})
   lazyPersonId: number = 0;
 
-  @property({type: String, notify: true})
+  @Polymer.decorators.property({type: String, notify: true})
   fullname: string;
 
   refresh() {
@@ -22,7 +22,7 @@ class LssProfilePictureMenu extends Polymer.GestureEventListeners
     dialog.toggle();
   }
 
-  @listen('tap', 'profilePicture')
+  @Polymer.decorators.listen('tap', 'profilePicture')
   async onProfilePictureTapped() {
     await this.importLazyGroup('menu');
     const dialog = this.$.dialog as any;
@@ -32,12 +32,12 @@ class LssProfilePictureMenu extends Polymer.GestureEventListeners
     this._toggleDialog();
   }
 
-  @listen('tap', 'myAccountButton')
+  @Polymer.decorators.listen('tap', 'myAccountButton')
   onMyAccountTapped() {
     window.open('https://accounts.leavitt.com/', '_blank');
   }
 
-  @listen('tap', 'logout')
+  @Polymer.decorators.listen('tap', 'logout')
   onLogoutTapped() {
     const options = {bubbles: true, composed: true};
     this.dispatchEvent(new CustomEvent('logout', options));
