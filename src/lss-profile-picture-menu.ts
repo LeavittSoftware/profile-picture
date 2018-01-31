@@ -23,7 +23,7 @@ class LssProfilePictureMenu extends Polymer.GestureEventListeners
   }
 
   @listen('tap', 'profilePicture')
-  async onProfilePictureTapped(e: any) {
+  async onProfilePictureTapped() {
     await this.importLazyGroup('menu');
     const dialog = this.$.dialog as any;
     dialog.positionTarget = this.$.profilePicture;
@@ -33,12 +33,12 @@ class LssProfilePictureMenu extends Polymer.GestureEventListeners
   }
 
   @listen('tap', 'myAccountButton')
-  onMyAccountTapped(e: any) {
+  onMyAccountTapped() {
     window.open('https://accounts.leavitt.com/', '_blank');
   }
 
   @listen('tap', 'logout')
-  onLogoutTapped(e: any) {
+  onLogoutTapped() {
     const options = {bubbles: true, composed: true};
     this.dispatchEvent(new CustomEvent('logout', options));
     this._toggleDialog();
