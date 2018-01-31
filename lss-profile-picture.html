@@ -1,11 +1,11 @@
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../polymer2-ts/polymer2-ts.html">
+<link rel="import" href="../polymer-decorators/polymer-decorators.html">
 <link rel="import" href="../iron-image/iron-image.html">
 
 <dom-module id="lss-profile-picture">
     <template>
         <style>
-             :host {
+            :host {
                 display: block;
             }
 
@@ -17,5 +17,5 @@
         <iron-image src="{{src}}" sizing="cover" width="[[size]]" height="[[size]]" shape$="{{shape}}" src$="[[src]]"></iron-image>
 
     </template>
-    <script type="text/javascript" src="lss-profile-picture.js"></script>
+    <script type="text/javascript" src="lib/lss-profile-picture.js"></script>
 </dom-module>

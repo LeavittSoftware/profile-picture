@@ -1,16 +1,11 @@
 ﻿<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../polymer2-ts/polymer2-ts.html">
+<link rel="import" href="../polymer-decorators/polymer-decorators.html">
 <link rel="import" href="../lazy-imports/lazy-imports-mixin.html">
-
-<link rel="import" href="../polymer/lib/elements/dom-if.html">
-
-<link rel="import" href="../titanium-dependency-injection/titanium-requester-mixin.html">
+<link rel="import" href="../polymer-decorators/mixins/declarative-event-listeners.html">
 <link rel="import" href="../polymer/lib/mixins/gesture-event-listeners.html">
 <link rel="import" href="./lss-profile-picture.html">
 
-
 <dom-module id="lss-profile-picture-menu">
-
 	<link rel="lazy-import" group="menu" href="../paper-dialog/paper-dialog.html">
 	<link rel="lazy-import" group="menu" href="../paper-button/paper-button.html">
 	<template>
@@ -19,8 +14,8 @@
 				--primary-color: var(--paper-blue-500);
 				--lss-profile-picture-menu-button-background-color: var(--primary-color);
 				--lss-profile-picture-menu-button-color: #fff;
-				--lss-profile-picture-signout-button-background-color: #fff;
-				--lss-profile-picture-signout-button-color: var(--paper-grey-800);
+				--lss-profile-picture-logout-button-background-color: #fff;
+				--lss-profile-picture-logout-button-color: var(--paper-grey-800);
 			}
 
 			paper-dialog {
@@ -81,9 +76,9 @@
 				@apply --layout-end-justified;
 			}
 
-			#signout {
-				background-color: var(--lss-profile-picture-signout-button-background-color);
-				color: var(--lss-profile-picture-signout-button-color);
+			#logout {
+				background-color: var(--lss-profile-picture-logout-button-background-color);
+				color: var(--lss-profile-picture-logout-button-color);
 			}
 
 			paper-button#myAccountButton {
@@ -105,21 +100,21 @@
 				<div id="my-account-box">
 					<div class="arrow-up"></div>
 					<div class="my-account-person">
-						<lss-profile-picture person-id="[[personId]]" shape="circle" size="75"></lss-profile-picture>
+						<lss-profile-picture id="innerProfilePicture" person-id="[[personId]]" shape="circle" size="75"></lss-profile-picture>
 						<div class="my-account-info">
 							<div class="full-name">{{fullname}}</div>
 							<div class="sub-head">Leavitt Group Account</div>
-							<paper-button id="myAccountButton" flat>My Account</paper-button>
 						</div>
 					</div>
 					<div class="my-account-buttons">
-						<paper-button id="signout" raised>Sign out</paper-button>
+						<paper-button id="logout">Logout</paper-button>
+						<paper-button id="myAccountButton" on-tap="onMyAccountTapped" flat>My Account</paper-button>
 					</div>
 				</div>
 			</paper-dialog>
 			<lss-profile-picture person-id="[[personId]]" id="profilePicture" shape="circle" size="40"></lss-profile-picture>
 		</section>
 	</template>
-	<script type="text/javascript" src="lss-profile-picture-menu.js">
+	<script type="text/javascript" src="lib/lss-profile-picture-menu.js">
 	</script>
 </dom-module>
