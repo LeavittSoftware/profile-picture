@@ -15,7 +15,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-let LssProfilePictureMenu = class LssProfilePictureMenu extends Polymer.LazyImportsMixin(Polymer.DeclarativeEventListeners(Polymer.Element)) {
+let LssProfilePictureMenu = class LssProfilePictureMenu extends Polymer.GestureEventListeners(Polymer.LazyImportsMixin(Polymer.DeclarativeEventListeners(Polymer.Element))) {
     constructor() {
         super(...arguments);
         this.lazyPersonId = 0;
@@ -26,24 +26,27 @@ let LssProfilePictureMenu = class LssProfilePictureMenu extends Polymer.LazyImpo
         innerProfilePicture.refresh();
         profilePicture.refresh();
     }
-    clickHandler(e) {
+    _toggleDialog() {
+        const dialog = this.$.dialog;
+        dialog.toggle();
+    }
+    onProfilePictureTapped(e) {
         return __awaiter(this, void 0, void 0, function* () {
             yield this.importLazyGroup('menu');
             const dialog = this.$.dialog;
             dialog.positionTarget = this.$.profilePicture;
             this.lazyPersonId = this.personId;
             this.$.dialog.removeAttribute('unresolved');
-            dialog.toggle();
+            this._toggleDialog();
         });
     }
-    myAccountClickHandler(e) {
+    onMyAccountTapped(e) {
         window.open('https://accounts.leavitt.com/', '_blank');
     }
-    signoutClickHandler(e) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const options = { bubbles: true, composed: true };
-            this.dispatchEvent(new CustomEvent('logout', options));
-        });
+    onLogoutTapped(e) {
+        const options = { bubbles: true, composed: true };
+        this.dispatchEvent(new CustomEvent('logout', options));
+        this._toggleDialog();
     }
 };
 __decorate([
@@ -59,23 +62,23 @@ __decorate([
     __metadata("design:type", String)
 ], LssProfilePictureMenu.prototype, "fullname", void 0);
 __decorate([
-    listen('click', 'profilePicture'),
+    listen('tap', 'profilePicture'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
-], LssProfilePictureMenu.prototype, "clickHandler", null);
+], LssProfilePictureMenu.prototype, "onProfilePictureTapped", null);
 __decorate([
-    listen('click', 'myAccountButton'),
+    listen('tap', 'myAccountButton'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
-], LssProfilePictureMenu.prototype, "myAccountClickHandler", null);
+], LssProfilePictureMenu.prototype, "onMyAccountTapped", null);
 __decorate([
-    listen('click', 'signout'),
+    listen('tap', 'logout'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Promise)
-], LssProfilePictureMenu.prototype, "signoutClickHandler", null);
+    __metadata("design:returntype", void 0)
+], LssProfilePictureMenu.prototype, "onLogoutTapped", null);
 LssProfilePictureMenu = __decorate([
     customElement('lss-profile-picture-menu')
 ], LssProfilePictureMenu);

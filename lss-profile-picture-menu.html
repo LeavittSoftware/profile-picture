@@ -2,6 +2,7 @@
 <link rel="import" href="../polymer-decorators/polymer-decorators.html">
 <link rel="import" href="../lazy-imports/lazy-imports-mixin.html">
 <link rel="import" href="../polymer-decorators/mixins/declarative-event-listeners.html">
+<link rel="import" href="../polymer/lib/mixins/gesture-event-listeners.html">
 <link rel="import" href="./lss-profile-picture.html">
 
 <dom-module id="lss-profile-picture-menu">
@@ -13,8 +14,8 @@
 				--primary-color: var(--paper-blue-500);
 				--lss-profile-picture-menu-button-background-color: var(--primary-color);
 				--lss-profile-picture-menu-button-color: #fff;
-				--lss-profile-picture-signout-button-background-color: #fff;
-				--lss-profile-picture-signout-button-color: var(--paper-grey-800);
+				--lss-profile-picture-logout-button-background-color: #fff;
+				--lss-profile-picture-logout-button-color: var(--paper-grey-800);
 			}
 
 			paper-dialog {
@@ -75,9 +76,9 @@
 				@apply --layout-end-justified;
 			}
 
-			#signout {
-				background-color: var(--lss-profile-picture-signout-button-background-color);
-				color: var(--lss-profile-picture-signout-button-color);
+			#logout {
+				background-color: var(--lss-profile-picture-logout-button-background-color);
+				color: var(--lss-profile-picture-logout-button-color);
 			}
 
 			paper-button#myAccountButton {
@@ -106,8 +107,8 @@
 						</div>
 					</div>
 					<div class="my-account-buttons">
-						<paper-button id="signout">Logout</paper-button>
-						<paper-button id="myAccountButton" flat>My Account</paper-button>
+						<paper-button id="logout">Logout</paper-button>
+						<paper-button id="myAccountButton" on-tap="onMyAccountTapped" flat>My Account</paper-button>
 					</div>
 				</div>
 			</paper-dialog>
