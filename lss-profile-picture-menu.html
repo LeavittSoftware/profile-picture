@@ -108,7 +108,9 @@
 					</div>
 					<div class="my-account-buttons">
 						<paper-button id="logout">Logout</paper-button>
-						<paper-button id="myAccountButton" on-tap="onMyAccountTapped" flat>My Account</paper-button>
+						<slot name="accountButtonSlot">
+							<paper-button id="myAccountButton" on-tap="onMyAccountTapped" flat>My Account</paper-button>
+						</slot>
 					</div>
 				</div>
 			</paper-dialog>
