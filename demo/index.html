@@ -18,7 +18,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
 
     <title>LSS Profile Picture Menu</title>
+    <script>
+        //load babel if browers doesn't have proises polyfills
+        (function () {
+            if (window.navigator.userAgent.indexOf("Edge") > -1 || typeof Promise === "undefined" || Promise.toString()
+                .indexOf("[native code]") === -1) {
+                var e = document.createElement('script');
+                e.src = '/node_modules/babel-polyfill/dist/polyfill.min.js';
+                document.head.appendChild(e);
+                console.log("bable polyfil loaded.");
+            }
 
+        })();
+    </script>
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
@@ -57,7 +69,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <h3>LSS Profile Picture Menu Demo</h3>
         <demo-snippet>
             <template>
-                <lss-profile-picture-menu person-id="11056"></lss-profile-picture-menu>
+                <lss-profile-picture-menu fullname="Aaron D" person-id="11056">
+                    <div slot="content">
+                        <pre>slot="content"</pre> </div>
+                </lss-profile-picture-menu>
             </template>
         </demo-snippet>
 
