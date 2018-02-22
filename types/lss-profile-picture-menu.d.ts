@@ -1,11 +1,10 @@
-declare const LssProfilePictureMenu_base: Polymer.LazyImportsMixinConstructor & typeof Polymer.Element & Polymer.DeclarativeEventListenersConstructor & Polymer.GestureEventListenersConstructor;
+declare const LssProfilePictureMenu_base: Polymer.LazyImportsMixinConstructor & typeof Polymer.Element & Polymer.GestureEventListenersConstructor;
 declare class LssProfilePictureMenu extends LssProfilePictureMenu_base {
     personId: number;
-    lazyPersonId: number;
     fullname: string;
+    dialog: any;
     refresh(): void;
-    private _toggleDialog();
-    onProfilePictureTapped(): Promise<void>;
-    onMyAccountTapped(): void;
-    onLogoutTapped(): void;
+    protected _onProfilePictureTapped(): Promise<void>;
+    protected _onMyAccountTapped(): void;
+    protected _onLogoutTapped(): void;
 }

@@ -1,8 +1,10 @@
 ﻿<link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../polymer-decorators/polymer-decorators.html">
+
+<!-- Mixins -->
 <link rel="import" href="../lazy-imports/lazy-imports-mixin.html">
-<link rel="import" href="../polymer-decorators/mixins/declarative-event-listeners.html">
 <link rel="import" href="../polymer/lib/mixins/gesture-event-listeners.html">
+
 <link rel="import" href="./lss-profile-picture.html">
 
 <dom-module id="lss-profile-picture-menu">
@@ -10,27 +12,19 @@
 	<link rel="lazy-import" group="menu" href="../paper-button/paper-button.html">
 	<template>
 		<style>
-			:host {
-				--primary-color: var(--paper-blue-500);
-				--lss-profile-picture-menu-button-background-color: var(--primary-color);
-				--lss-profile-picture-menu-button-color: #fff;
-				--lss-profile-picture-logout-button-background-color: #fff;
-				--lss-profile-picture-logout-button-color: var(--paper-grey-800);
-			}
-
 			paper-dialog {
 				min-width: 305px;
 				margin: 2px 0 0 0;
 			}
 
-			#my-account-box {
+			dialog-content {
 				@apply --layout-flex;
 				@apply --layout-vertical;
 				padding: 8px !important;
 				margin: 0 !important;
 			}
 
-			.arrow-up {
+			up-arrow {
 				width: 0;
 				height: 0;
 				position: absolute;
@@ -41,26 +35,30 @@
 				border-bottom: 10px solid white;
 			}
 
-			#my-account-box .my-account-person {
+			conent-container {
+				@apply --layout-vertical;
+			}
+
+			content-head {
 				@apply --layout-horizontal;
 			}
 
-			#my-account-box .my-account-info {
+			user-info {
 				@apply --layout-vertical;
 				@apply --layout-flex;
 				padding: 8px;
 			}
 
-			#my-account-box .my-account-info .full-name {
+			user-info user-name {
 				@apply --paper-font-subhead;
 				font-weight: bold;
 			}
 
-			#my-account-box .my-account-info .sub-head {
+			user-info user-company {
 				color: #666;
 			}
 
-			#my-account-box .my-account-info paper-button {
+			user-info paper-button {
 				margin-top: 32px;
 				margin-bottom: 32px;
 				width: 125px;
@@ -71,19 +69,20 @@
 				padding: 8px;
 			}
 
-			.my-account-buttons {
+			action-buttons {
+				margin-top: 8px;
 				@apply --layout-horizontal;
 				@apply --layout-end-justified;
 			}
 
-			#logout {
-				background-color: var(--lss-profile-picture-logout-button-background-color);
-				color: var(--lss-profile-picture-logout-button-color);
+			paper-button {
+				background-color: var(--lss-profile-picture-logout-button-background-color, #fff);
+				color: var(--lss-profile-picture-logout-button-color, #424242);
 			}
 
-			paper-button#myAccountButton {
-				background-color: var(--lss-profile-picture-menu-button-background-color);
-				color: var(--lss-profile-picture-menu-button-color);
+			paper-button[main-action] {
+				background-color: var(--lss-profile-picture-menu-button-background-color, #2196f3);
+				color: var(--lss-profile-picture-menu-button-color, #fff);
 				--paper-button-raised-keyboard-focus: {
 					background-color: var(--paper-pink-a200) !important;
 					color: white !important;
@@ -96,26 +95,28 @@
 			}
 		</style>
 		<section>
-			<paper-dialog scroll-action="lock" unresolved id="dialog" no-overlap horizontal-align="right" vertical-align="top">
-				<div id="my-account-box">
-					<div class="arrow-up"></div>
-					<div class="my-account-person">
-						<lss-profile-picture id="innerProfilePicture" person-id="[[personId]]" shape="circle" size="75"></lss-profile-picture>
-						<div class="my-account-info">
-							<div class="full-name">{{fullname}}</div>
-							<div class="sub-head">Leavitt Group Account</div>
-							<slot name="content"></slot>
-						</div>
-					</div>
-					<div class="my-account-buttons">
-						<paper-button id="logout">Logout</paper-button>
+			<paper-dialog scroll-action="lock" unresolved no-overlap horizontal-align="right" vertical-align="top">
+				<dialog-content>
+					<up-arrow></up-arrow>
+					<conent-container>
+						<content-head>
+							<lss-profile-picture id="innerProfilePicture" person-id="[[personId]]" shape="circle" size="55"></lss-profile-picture>
+							<user-info>
+								<user-name>{{fullname}}</user-name>
+								<user-company>Leavitt Group Account</user-company>
+							</user-info>
+						</content-head>
+						<slot name="content"></slot>
+					</conent-container>
+					<action-buttons>
+						<paper-button on-tap="_onLogoutTapped">Logout</paper-button>
 						<slot name="accountButtonSlot">
-							<paper-button id="myAccountButton" on-tap="onMyAccountTapped" flat>My Account</paper-button>
+							<paper-button main-action on-tap="_onMyAccountTapped" flat>My Account</paper-button>
 						</slot>
-					</div>
-				</div>
+					</action-buttons>
+				</dialog-content>
 			</paper-dialog>
-			<lss-profile-picture person-id="[[personId]]" id="profilePicture" shape="circle" size="40"></lss-profile-picture>
+			<lss-profile-picture person-id="[[personId]]" on-tap="_onProfilePictureTapped" id="profilePicture" shape="circle" size="40"></lss-profile-picture>
 		</section>
 	</template>
 	<script type="text/javascript" src="lib/lss-profile-picture-menu.js">
