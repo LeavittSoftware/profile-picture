@@ -5,10 +5,10 @@
 <link rel="import" href="../lazy-imports/lazy-imports-mixin.html">
 <link rel="import" href="../polymer/lib/mixins/gesture-event-listeners.html">
 
+<link rel="import" href="../paper-dialog/paper-dialog.html">
 <link rel="import" href="./lss-profile-picture.html">
 
 <dom-module id="lss-profile-picture-menu">
-	<link rel="lazy-import" group="menu" href="../paper-dialog/paper-dialog.html">
 	<link rel="lazy-import" group="menu" href="../paper-button/paper-button.html">
 	<template>
 		<style>
@@ -95,7 +95,7 @@
 			}
 		</style>
 		<section>
-			<paper-dialog scroll-action="lock" unresolved no-overlap horizontal-align="right" vertical-align="top">
+			<paper-dialog id="dialog" scroll-action="lock" unresolved no-overlap horizontal-align="right" vertical-align="top">
 				<dialog-content>
 					<up-arrow></up-arrow>
 					<conent-container>
