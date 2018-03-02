@@ -1,25 +1,38 @@
 ﻿@Polymer.decorators.customElement('lss-profile-picture-menu')
 class LssProfilePictureMenu extends Polymer.GestureEventListeners
 (Polymer.LazyImportsMixin(Polymer.Element)) {
-  @Polymer.decorators.property({type: Number})
+  @Polymer.decorators.property({type: Number, notify: true})
   personId: number;
 
-  @Polymer.decorators.property({type: String})
+  @Polymer.decorators.property({type: Array, notify: true})
+  roles: Array<string>;
+
+  @Polymer.decorators.property({type: String, notify: true})
   fullname: string;
 
+  @Polymer.decorators.property({type: Boolean})
+  disableAutoload: boolean;
+
   @Polymer.decorators.query('paper-dialog')
-  dialog: any;
+  dialog: PaperDialogElement;
+
+  @Polymer.decorators.query('lss-user-manager')
+  userManager: LssUserManager;
+
+  @Polymer.decorators.query('#profilePicture')
+  profilePicture: LSSProfilePicture;
+
+  @Polymer.decorators.query('#innerProfilePicture')
+  innerProfilePicture: LSSProfilePicture;
 
   refresh() {
-    const profilePicture = this.$.profilePicture as LSSProfilePicture;
-    const innerProfilePicture = this.$.innerProfilePicture as LSSProfilePicture;
-    innerProfilePicture.refresh();
-    profilePicture.refresh();
+    this.innerProfilePicture.refresh();
+    this.profilePicture.refresh();
   }
 
   protected async _onProfilePictureTapped() {
     await this.importLazyGroup('menu');
-    this.dialog.positionTarget = this.$.profilePicture;
+    this.dialog.positionTarget = this.profilePicture;
     this.dialog.removeAttribute('unresolved');
     this.dialog.toggle();
   }
@@ -29,7 +42,6 @@ class LssProfilePictureMenu extends Polymer.GestureEventListeners
   }
 
   protected _onLogoutTapped() {
-    this.dispatchEvent(new CustomEvent('logout', {bubbles: true, composed: true} as any));
-    this.dialog.toggle();
+    this.userManager.logoutAsync();
   }
 }

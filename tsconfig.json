@@ -25,6 +25,9 @@
     "bower_components/polymer/types/lib/mixins/gesture-event-listeners.d.ts",
     "bower_components/polymer-decorators/polymer-decorators.d.ts",
     "bower_components/polymer-decorators/mixins/declarative-event-listeners.d.ts",
+    "bower_components/lss-user-manager/types/lss-user-manager.d.ts",
+    "bower_components/paper-dialog/paper-dialog.d.ts",
+    "bower_components/paper-dialog-behavior/paper-dialog-behavior.d.ts",
     "lazy-import.d.ts",
     "src/**/*.ts"
   ]

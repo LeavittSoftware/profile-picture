@@ -6,6 +6,8 @@
 <link rel="import" href="../polymer/lib/mixins/gesture-event-listeners.html">
 
 <link rel="import" href="../paper-dialog/paper-dialog.html">
+<link rel="import" href="../lss-user-manager/lss-user-manager.html">
+
 <link rel="import" href="./lss-profile-picture.html">
 
 <dom-module id="lss-profile-picture-menu">
@@ -94,6 +96,7 @@
 				display: none;
 			}
 		</style>
+		<lss-user-manager disableAutoload="[[disableAutoload]]" roles="{{roles}}" fullname="{{fullname}}" person-id="{{personId}}"></lss-user-manager>
 		<section>
 			<paper-dialog id="dialog" scroll-action="lock" unresolved no-overlap horizontal-align="right" vertical-align="top">
 				<dialog-content>
@@ -102,7 +105,7 @@
 						<content-head>
 							<lss-profile-picture id="innerProfilePicture" person-id="[[personId]]" shape="circle" size="55"></lss-profile-picture>
 							<user-info>
-								<user-name>{{fullname}}</user-name>
+								<user-name>[[fullname]]</user-name>
 								<user-company>Leavitt Group Account</user-company>
 							</user-info>
 						</content-head>
