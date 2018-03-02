@@ -29,8 +29,9 @@
     "iron-image": "^2.1.1",
     "web-animations-js": "^2.2.5",
     "paper-styles": "PolymerElements/paper-styles#^2.0.0",
-    "polymer-decorators": "Polymer/polymer-decorators#^1.0.2",
-    "lazy-imports": "^2.1.0"
+    "polymer-decorators": "Polymer/polymer-decorators#^2.0.0",
+    "lazy-imports": "^2.1.0",
+    "lss-user-manager": "*"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^2.0.0",
@@ -40,5 +41,8 @@
   },
   "demos": {
     "Demo": "demo/index.html"
+  },
+  "resolutions": {
+    "polymer-decorators": "^2.0.0"
   }
 }
