@@ -1,21 +1,28 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../polymer-decorators/polymer-decorators.html">
-<link rel="import" href="../iron-image/iron-image.html">
 
 <dom-module id="lss-profile-picture">
     <template>
         <style>
             :host {
-                display: block;
+                display: inline-block;
+                white-space: normal;
+                /* IE11 fix if flex is applied to element */
+                flex-shrink: 0;
             }
 
-            iron-image[shape=circle] {
+            img {
+                display: block;
+                width: 100%;
+                @apply --lss-profile-picture-img;
+            }
+
+            :host([shape="circle"]) img {
                 border-radius: 50%;
                 cursor: pointer;
             }
         </style>
-        <iron-image src="{{src}}" sizing="cover" width="[[size]]" height="[[size]]" shape$="{{shape}}" src$="[[src]]"></iron-image>
-
+        <img draggable="false" src$="[[src]]"></img>
     </template>
     <script type="text/javascript" src="lib/lss-profile-picture.js"></script>
 </dom-module>

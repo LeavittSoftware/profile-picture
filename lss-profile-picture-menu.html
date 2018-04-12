@@ -68,7 +68,6 @@
 
 			lss-profile-picture {
 				@apply --layout-vertical;
-				padding: 8px;
 			}
 
 			action-buttons {
@@ -98,7 +97,8 @@
 		</style>
 		<lss-user-manager disableAutoload="[[disableAutoload]]" roles="{{roles}}" fullname="{{fullname}}" person-id="{{personId}}"></lss-user-manager>
 		<section>
-			<paper-dialog id="dialog" scroll-action="lock" unresolved no-overlap horizontal-align="right" vertical-align="top">
+			<paper-dialog id="dialog" scroll-action="lock" unresolved no-overlap horizontal-align="right" vertical-align="top" vertical-offset="8"
+			    horizontal-offset="-8">
 				<dialog-content>
 					<up-arrow></up-arrow>
 					<conent-container>

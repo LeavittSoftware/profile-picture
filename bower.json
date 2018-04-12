@@ -26,7 +26,6 @@
     "paper-dialog": "PolymerElements/paper-dialog#^2.0.1",
     "paper-button": "PolymerElements/paper-button#^2.0.0",
     "neon-animation": "PolymerElements/neon-animation#^2.0.0",
-    "iron-image": "^2.1.1",
     "web-animations-js": "^2.2.5",
     "paper-styles": "PolymerElements/paper-styles#^2.0.0",
     "polymer-decorators": "Polymer/polymer-decorators#^2.0.0",
