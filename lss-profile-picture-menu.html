@@ -31,7 +31,6 @@
 				height: 0;
 				position: absolute;
 				top: -10px;
-				right: 18px;
 				border-left: 10px solid transparent;
 				border-right: 10px solid transparent;
 				border-bottom: 10px solid white;
@@ -100,7 +99,7 @@
 			<paper-dialog id="dialog" scroll-action="lock" unresolved no-overlap horizontal-align="right" vertical-align="top" vertical-offset="8"
 			    horizontal-offset="-8">
 				<dialog-content>
-					<up-arrow></up-arrow>
+					<up-arrow style$="[[_calcUpArrowStyle(size)]]"></up-arrow>
 					<conent-container>
 						<content-head>
 							<lss-profile-picture id="innerProfilePicture" person-id="[[personId]]" shape="circle" size="55"></lss-profile-picture>
@@ -119,7 +118,7 @@
 					</action-buttons>
 				</dialog-content>
 			</paper-dialog>
-			<lss-profile-picture person-id="[[personId]]" on-tap="_onProfilePictureTapped" id="profilePicture" shape="circle" size="40"></lss-profile-picture>
+			<lss-profile-picture person-id="[[personId]]" on-tap="_onProfilePictureTapped" id="profilePicture" shape="circle" size="[[size]]"></lss-profile-picture>
 		</section>
 	</template>
 	<script type="text/javascript" src="lib/lss-profile-picture-menu.js">

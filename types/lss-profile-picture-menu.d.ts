@@ -4,6 +4,7 @@ declare class LssProfilePictureMenu extends LssProfilePictureMenu_base {
     roles: Array<string>;
     fullname: string;
     disableAutoload: boolean;
+    size: number;
     dialog: PaperDialogElement;
     userManager: LssUserManager;
     profilePicture: LSSProfilePicture;
@@ -11,5 +12,6 @@ declare class LssProfilePictureMenu extends LssProfilePictureMenu_base {
     refresh(): void;
     protected _onProfilePictureTapped(): Promise<void>;
     protected _onMyAccountTapped(): void;
+    protected _calcUpArrowStyle(size: number): string;
     protected _onLogoutTapped(): void;
 }
