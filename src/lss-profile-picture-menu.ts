@@ -13,6 +13,9 @@ class LssProfilePictureMenu extends Polymer.GestureEventListeners
   @Polymer.decorators.property({type: Boolean})
   disableAutoload: boolean;
 
+  @Polymer.decorators.property({type: Number})
+  size: number = 40;
+
   @Polymer.decorators.query('paper-dialog')
   dialog: PaperDialogElement;
 
@@ -39,6 +42,11 @@ class LssProfilePictureMenu extends Polymer.GestureEventListeners
 
   protected _onMyAccountTapped() {
     window.open('https://accounts.leavitt.com/', '_blank');
+  }
+
+  protected _calcUpArrowStyle(size: number) {
+    const _size = Number(size) || 40;
+    return `right:${_size / 2}px`;
   }
 
   protected _onLogoutTapped() {
