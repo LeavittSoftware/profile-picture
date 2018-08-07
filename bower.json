@@ -30,7 +30,7 @@
     "paper-styles": "PolymerElements/paper-styles#^2.0.0",
     "polymer-decorators": "Polymer/polymer-decorators#^2.0.0",
     "lazy-imports": "^2.1.0",
-    "lss-user-manager": "*"
+    "lss-user-manager": "^6.0.0"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^2.0.0",
