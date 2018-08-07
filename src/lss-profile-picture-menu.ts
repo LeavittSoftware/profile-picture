@@ -1,26 +1,11 @@
 ﻿@Polymer.decorators.customElement('lss-profile-picture-menu')
-class LssProfilePictureMenu extends Polymer.GestureEventListeners
-(Polymer.LazyImportsMixin(Polymer.Element)) {
-  @Polymer.decorators.property({type: Number, notify: true})
-  personId: number;
-
-  @Polymer.decorators.property({type: Array, notify: true})
-  roles: Array<string>;
-
-  @Polymer.decorators.property({type: String, notify: true})
-  fullname: string;
-
-  @Polymer.decorators.property({type: Boolean})
-  disableAutoload: boolean;
-
+class LssProfilePictureMenu extends AuthenticatedPersonBehavior
+(Polymer.GestureEventListeners(Polymer.LazyImportsMixin(Polymer.Element))) {
   @Polymer.decorators.property({type: Number})
   size: number = 40;
 
   @Polymer.decorators.query('paper-dialog')
   dialog: PaperDialogElement;
-
-  @Polymer.decorators.query('lss-user-manager')
-  userManager: LssUserManager;
 
   @Polymer.decorators.query('#profilePicture')
   profilePicture: LSSProfilePicture;
@@ -50,6 +35,6 @@ class LssProfilePictureMenu extends Polymer.GestureEventListeners
   }
 
   protected _onLogoutTapped() {
-    this.userManager.logoutAsync();
+    window.dispatchEvent(new CustomEvent('um-logout'));
   }
 }

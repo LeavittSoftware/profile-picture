@@ -23,6 +23,7 @@
   "include": [
     "bower_components/polymer/types/polymer-element.d.ts",
     "bower_components/polymer/types/lib/mixins/gesture-event-listeners.d.ts",
+    "bower_components/lss-user-manager/types/authenticated-person-behavior.d.ts",
     "bower_components/polymer-decorators/polymer-decorators.d.ts",
     "bower_components/polymer-decorators/mixins/declarative-event-listeners.d.ts",
     "bower_components/lss-user-manager/types/lss-user-manager.d.ts",
