@@ -1,5 +1,4 @@
 import '@polymer/paper-dialog/paper-dialog.js';
-import '@polymer/paper-button/paper-button.js';
 import { PolymerElement } from '@polymer/polymer';
 import { ProfilePictureElement } from './profile-picture';
 export declare class ProfilePictureMenuElement extends PolymerElement {
@@ -9,6 +8,7 @@ export declare class ProfilePictureMenuElement extends PolymerElement {
     dialog: any;
     profilePicture: ProfilePictureElement;
     innerProfilePicture: ProfilePictureElement;
+    private _loadComplete;
     refresh(): void;
     protected _onProfilePictureTapped(): Promise<void>;
     protected _onMyAccountTapped(): void;
