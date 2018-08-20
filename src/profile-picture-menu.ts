@@ -1,5 +1,4 @@
 ﻿import '@polymer/paper-dialog/paper-dialog.js';
-import '@polymer/paper-button/paper-button.js';
 
 import {customElement, property, query} from '@polymer/decorators';
 import {html, PolymerElement} from '@polymer/polymer';
@@ -16,6 +15,7 @@ export class ProfilePictureMenuElement extends PolymerElement {
   @query('#profilePicture') profilePicture: ProfilePictureElement;
   @query('#innerProfilePicture') innerProfilePicture: ProfilePictureElement;
 
+  private _loadComplete = false;
   refresh() {
     this.innerProfilePicture.refresh();
     this.profilePicture.refresh();
@@ -25,6 +25,16 @@ export class ProfilePictureMenuElement extends PolymerElement {
     // await this.importLazyGroup('menu');
     this.dialog.positionTarget = this.profilePicture;
     this.dialog.removeAttribute('unresolved');
+
+    if (!this._loadComplete) {
+      try {
+        await import('../../../@polymer/paper-button/paper-button.js');
+      } catch (error) {
+        console.warn('paper-button failed to load', error);
+      }
+      this._loadComplete = true;
+    }
+
     this.dialog.toggle();
   }
 
