@@ -2,3 +2,5 @@ node_modules/
 *.map
 *.tgz
 demo/*.js
+
+demo/package-lock\.json
