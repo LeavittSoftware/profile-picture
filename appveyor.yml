@@ -8,6 +8,8 @@ install:
   - ps: Install-Product node $env:nodejs_version
   # install modules
   - npm install
+  - ps: '"//registry.npmjs.org/:_authToken=$env:npm_auth_token`n" | out-file "$env:userprofile\.npmrc" -Encoding ASCII'
+  - echo %APPVEYOR_REPO_BRANCH% %APPVEYOR_PULL_REQUEST_NUMBER%
 
 # Post-install test scripts.
 test_script:
@@ -15,10 +17,12 @@ test_script:
   - node --version
   - npm --version
   # run tests
-  - npm run test
-
+  - npm run lint
+  - git config user.email "builds@leavitt.com"
+  - git config user.name "AppVeyor"
+ 
 # Don't actually build.
-build: off
+build: off 
 
 notifications:
 - provider: Slack
@@ -39,10 +43,16 @@ notifications:
   template: "<{{buildUrl}}|Build [{{projectName}}] {{buildVersion}} {{status}}> Commit <{{commitUrl}}|{{commitId}}> by {{commitAuthor}} on {{commitDate}}: _{{commitMessage}}_"
   
 skip_tags: true
-version: 5.0.{build}
+skip_branch_with_pr: true
+version: 1.0.{build}
+
+after_test:
+- npm version %APPVEYOR_BUILD_VERSION% -m 'v%APPVEYOR_BUILD_VERSION%'
+- ps: >-
+        if($env:APPVEYOR_REPO_BRANCH -eq 'master' –AND $env:APPVEYOR_PULL_REQUEST_NUMBER -lt 1) {
+          npm whoami  
+          npm publish --access public
+        }
+
 deploy:
-- provider: GitHub
-  auth_token:
-    secure: 73BMyeWNs+Y0cyNA2FzsPiO4b93zn8pBdSO/oPc9GvT+znZj4vZAWF0bIu0G6G3i
-  on:
-    branch: master
+    
