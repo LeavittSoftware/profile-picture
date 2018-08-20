@@ -22,7 +22,7 @@ test_script:
   - git config user.name "AppVeyor"
  
 # Don't actually build.
-build: off
+build: off 
 
 notifications:
 - provider: Slack
