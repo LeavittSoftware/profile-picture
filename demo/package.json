@@ -1,0 +1,26 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "update:local-package": "npm pack ../ | tail -1 && npm uninstall profile-picture && npm install --save file:leavittsoftware-profile-picture-1.0.0.tgz",
+    "preinstall": "npm run update:local-package",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run update:local-package && tsc && cd .. && gulp"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@leavittsoftware/profile-picture": "file:leavittsoftware-profile-picture-1.0.0.tgz",
+    "@leavittsoftware/user-manager": "^7.0.44",
+    "@polymer/iron-demo-helpers": "^3.0.0-pre.21",
+    "@polymer/paper-button": "^3.0.0-pre.21",
+    "@polymer/paper-input": "^3.0.0-pre.21",
+    "@polymer/paper-styles": "^3.0.0-pre.21",
+    "@polymer/polymer": "^3.0.5",
+    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "babel-polyfill": "^6.26.0",
+    "whatwg-fetch": "^2.0.4"
+  }
+}

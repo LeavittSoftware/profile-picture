@@ -9,20 +9,17 @@
     ],
     "experimentalDecorators": true,
     "noImplicitAny": false,
-    "declaration": true,
-    "sourceMap": true,
+    "declaration": false,
+    "sourceMap": false,
     "noImplicitReturns": true,
     "alwaysStrict": true,
     "allowJs": false,
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "strictNullChecks": true,
-    "outDir": "lib",
-    "rootDir": "src",
-    "declarationDir": "lib"
+    "strictNullChecks": true
   },
   "include": [
-    "src/**/*.ts"
+    "*.ts"
   ]
 }

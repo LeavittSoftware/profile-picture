@@ -1,10 +1,10 @@
-# lss-profile-picture
+# profile-picture
 
 [![Build status](https://ci.appveyor.com/api/projects/status/l7ia32h1aj6ursli?svg=true)](https://ci.appveyor.com/project/aarondrabeck/profile-picture)
 
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/LssPolymerElements/profile-picture)
 
-To install use: `bower install --save lss-profile-picture`
+To install use: `npm i --save @leavittsoftware/profile-picture`
 
 [ LIVE DEMO AND API ](https://www.webcomponents.org/element/LssPolymerElements/profile-picture)
 
