@@ -5,14 +5,12 @@
   "main": "profile-picture.html",
   "dependencies": {
     "@polymer/decorators": "^3.0.0",
-    "@polymer/lit-element": "^0.5.2",
-    "@polymer/polymer": "^3.0.5",
-    "gulp": "^3.9.1",
-    "lit-html": "^0.8.0",
-    "lit-html-element": "^0.9.1"
+    "@polymer/paper-button": "^3.0.0-pre.21",
+    "@polymer/paper-dialog": "^3.0.0-pre.21",
+    "@polymer/polymer": "^3.0.5"
   },
   "devDependencies": {
-    "@types/jwt-decode": "^2.2.1",
+    "gulp": "^3.9.1",
     "browser-sync": "^2.18.2",
     "clang-format": "^1.2.2",
     "tslint": "4.0.2",
