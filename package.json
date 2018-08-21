@@ -4,9 +4,15 @@
   "description": "",
   "main": "profile-picture.html",
   "dependencies": {
+    "@leavittsoftware/user-manager": "^7.0.45",
     "@polymer/decorators": "^3.0.0",
+    "@polymer/iron-list": "^3.0.0-pre.21",
+    "@polymer/iron-pages": "^3.0.0-pre.21",
     "@polymer/paper-button": "^3.0.0-pre.21",
     "@polymer/paper-dialog": "^3.0.0-pre.21",
+    "@polymer/paper-input": "^3.0.0-pre.21",
+    "@polymer/paper-tabs": "^3.0.0-pre.21",
+    "@polymer/paper-toggle-button": "^3.0.0-pre.21",
     "@polymer/polymer": "^3.0.5"
   },
   "devDependencies": {

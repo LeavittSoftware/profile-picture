@@ -1,9 +1,9 @@
 import '@polymer/paper-dialog/paper-dialog.js';
+import '../lib/profile-picture.js';
 import { PolymerElement } from '@polymer/polymer';
 import { ProfilePictureElement } from './profile-picture';
-export declare class ProfilePictureMenuElement extends PolymerElement {
-    personId: number;
-    fullname: string;
+declare const ProfilePictureMenuElement_base: typeof PolymerElement & import("@leavittsoftware/user-manager/lib/authenticated-person-mixin").AuthenticatedPersonMixinConstructor;
+export declare class ProfilePictureMenuElement extends ProfilePictureMenuElement_base {
     size: number;
     dialog: any;
     profilePicture: ProfilePictureElement;
@@ -16,3 +16,4 @@ export declare class ProfilePictureMenuElement extends PolymerElement {
     protected _onLogoutTapped(): void;
     static readonly template: HTMLTemplateElement;
 }
+export {};
