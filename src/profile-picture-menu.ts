@@ -1,14 +1,14 @@
 ﻿import '@polymer/paper-dialog/paper-dialog.js';
+import '../lib/profile-picture.js';
 
+import {authenticatedPersonMixin} from '@leavittsoftware/user-manager/lib/authenticated-person-mixin';
 import {customElement, property, query} from '@polymer/decorators';
 import {html, PolymerElement} from '@polymer/polymer';
 
 import {ProfilePictureElement} from './profile-picture';
 
-@customElement('profile-picture-menu')
-export class ProfilePictureMenuElement extends PolymerElement {
-  @property({type: Number}) personId: number = 44;
-  @property({type: String}) fullname: string;
+@customElement('profile-picture-menu') export class ProfilePictureMenuElement extends authenticatedPersonMixin
+(PolymerElement) {
   @property({type: Number}) size: number = 40;
 
   @query('paper-dialog') dialog: any;
