@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
-    <title>LSS Profile Picture Menu</title>
+    <title>Authenticated Profile Picture Menu with Development Menu</title>
     <script>
         //load babel if browers doesn't have proises polyfills
         (function () {
@@ -35,9 +35,9 @@
     <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <script type="module" src="node_modules/@polymer/iron-demo-helpers/demo-snippet.js" crossorigin></script>
     <script type="module" src="node_modules/@polymer/paper-styles/paper-styles.js" crossorigin></script>
-
-    <script type="module" src="node_modules/@leavittsoftware/profile-picture/lib/profile-picture.js" crossorigin></script>
+    <script type="module" src="node_modules/@leavittsoftware/user-manager/lib/user-manager.js" crossorigin></script>
     <script type="module" src="node_modules/@leavittsoftware/profile-picture/lib/profile-picture-menu.js" crossorigin></script>
+    <script type="module" src="node_modules/@leavittsoftware/profile-picture/lib/development-menu.js" crossorigin></script>
 
     <custom-style>
         <style is="custom-style" include="demo-pages-shared-styles">
@@ -58,48 +58,26 @@
             }
         </style>
     </custom-style>
-    <style>
-    </style>
 </head>
 
 <body unresolved>
-
     <div class="vertical-section-container centered">
-        <a href="development-menu-demo.html">Profile picture with development menu demo (Authentication required)</a>
-
-        <h3>LSS Profile Picture Demo</h3>
+        <h3>Profile Picture Menu with Devolopment Menu</h3>
         <demo-snippet>
             <template>
-                <profile-picture person-id="11056"></profile-picture>
-                <profile-picture shape="square" person-id="11056"></profile-picture>
-            </template>
-        </demo-snippet>
-
-        <h3>LSS Profile Picture Menu Demo</h3>
-        <demo-snippet>
-            <template>
-                <profile-picture-menu fullname="Aaron D" person-id="11056">
-                    <div slot="content">
-                        <pre>slot="content"</pre> </div>
+                <custom-style>
+                    <style is="custom-style">
+                        development-menu {
+                            margin: 8px 0;
+                        }
+                    </style>
+                </custom-style>
+                <user-manager></user-manager>
+                <profile-picture-menu>
+                    <development-menu slot="content"></development-menu>
                 </profile-picture-menu>
             </template>
         </demo-snippet>
-
-        <h3>LSS Profile Picture Menu Styling Demo</h3>
-        <demo-snippet>
-            <template>
-                <style>
-                    profile-picture-menu[demo-two] {
-                        --profile-picture-menu-button-background-color: var(--paper-indigo-500);
-                        --profile-picture-menu-button-color: #fff;
-                        --profile-picture-logout-button-background-color: var(--paper-pink-a200);
-                        --profile-picture-logout-button-color: #fff;
-                    }
-                </style>
-                <profile-picture-menu size="20" demo-two></profile-picture-menu>
-            </template>
-        </demo-snippet>
-
     </div>
 </body>
 
