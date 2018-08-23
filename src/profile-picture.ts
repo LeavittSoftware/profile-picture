@@ -58,6 +58,6 @@ export class ProfilePictureElement extends PolymerElement {
         cursor: pointer;
     }
 </style>
-<img draggable="false" src$="[[src(personId,size)]]">`;
+<img draggable="false" alt="Profile Picture" src$="[[src(personId,size)]]">`;
   }
 }
