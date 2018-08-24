@@ -1,4 +1,4 @@
-﻿import '@polymer/paper-dialog/paper-dialog.js';
+﻿
 import '../lib/profile-picture.js';
 
 import {authenticatedPersonMixin} from '@leavittsoftware/user-manager/lib/authenticated-person-mixin';
@@ -22,12 +22,10 @@ import {ProfilePictureElement} from './profile-picture';
   }
 
   protected async _onProfilePictureTapped() {
-    // await this.importLazyGroup('menu');
-    this.dialog.positionTarget = this.profilePicture;
-    this.dialog.removeAttribute('unresolved');
-
+    console.log('tapped');
     if (!this._loadComplete) {
       try {
+        await import('../../../@polymer/paper-dialog/paper-dialog.js');
         await import('../../../@polymer/paper-button/paper-button.js');
       } catch (error) {
         console.warn('paper-button failed to load', error);
@@ -35,6 +33,8 @@ import {ProfilePictureElement} from './profile-picture';
       this._loadComplete = true;
     }
 
+    this.dialog.positionTarget = this.profilePicture;
+    this.dialog.removeAttribute('unresolved');
     this.dialog.toggle();
   }
 
@@ -156,7 +156,7 @@ import {ProfilePictureElement} from './profile-picture';
                 </action-buttons>
               </dialog-content>
             </paper-dialog>
-            <profile-picture person-id="[[personId]]" on-tap="_onProfilePictureTapped" id="profilePicture" shape="circle" size="[[size]]"></profile-picture>
+            <profile-picture person-id="[[personId]]" on-click="_onProfilePictureTapped" id="profilePicture" shape="circle" size="[[size]]"></profile-picture>
           </section>`;
   }
 }

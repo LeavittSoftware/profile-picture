@@ -1,4 +1,3 @@
-import '@polymer/paper-dialog/paper-dialog.js';
 import '../lib/profile-picture.js';
 import { PolymerElement } from '@polymer/polymer';
 import { ProfilePictureElement } from './profile-picture';
