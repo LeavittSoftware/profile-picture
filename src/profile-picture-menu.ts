@@ -1,4 +1,4 @@
-﻿
+
 import '../lib/profile-picture.js';
 
 import {authenticatedPersonMixin} from '@leavittsoftware/user-manager/lib/authenticated-person-mixin';
@@ -156,7 +156,10 @@ import {ProfilePictureElement} from './profile-picture';
                 </action-buttons>
               </dialog-content>
             </paper-dialog>
-            <profile-picture person-id="[[personId]]" on-click="_onProfilePictureTapped" id="profilePicture" shape="circle" size="[[size]]"></profile-picture>
+            <div>
+				<lss-profile-picture person-id="[[personId]]" on-tap="_onProfilePictureTapped" id="profilePicture" shape="circle"
+				 size="[[size]]"></lss-profile-picture>
+			</div>
           </section>`;
   }
 }
