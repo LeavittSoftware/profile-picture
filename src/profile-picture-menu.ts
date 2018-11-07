@@ -158,9 +158,8 @@ import {ProfilePictureElement} from './profile-picture';
       </action-buttons>
     </dialog-content>
   </paper-dialog>
-  <div>
-    <lss-profile-picture person-id="[[personId]]" on-tap="_onProfilePictureTapped" id="profilePicture" shape="circle"
-      size="[[size]]"></lss-profile-picture>
+  <div on-tap="_onProfilePictureTapped">
+    <lss-profile-picture person-id="[[personId]]" id="profilePicture" shape="circle" size="[[size]]"></lss-profile-picture>
   </div>
 </section>`;
   }
