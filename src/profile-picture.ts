@@ -55,7 +55,6 @@ export class ProfilePictureElement extends PolymerElement {
 
     :host([shape="circle"]) img {
         border-radius: 50%;
-        cursor: pointer;
     }
 </style>
 <img draggable="false" src$="[[src(personId,size)]]">`;
