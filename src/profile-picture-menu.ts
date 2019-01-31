@@ -159,7 +159,7 @@ import {ProfilePictureElement} from './profile-picture';
     </dialog-content>
   </paper-dialog>
   <div on-tap="_onProfilePictureTapped">
-    <lss-profile-picture person-id="[[personId]]" id="profilePicture" shape="circle" size="[[size]]"></lss-profile-picture>
+    <profile-picture person-id="[[personId]]" id="profilePicture" shape="circle" size="[[size]]"></profile-picture>
   </div>
 </section>`;
   }
