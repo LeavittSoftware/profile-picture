@@ -153,7 +153,7 @@ import {ProfilePictureElement} from './profile-picture';
       <action-buttons>
         <paper-button on-tap="_onLogoutTapped">Logout</paper-button>
         <slot name="accountButtonSlot">
-          <paper-button main-action on-tap="_onMyAccountTapped" flat>My Account</paper-button>
+          <paper-button main-action on-click="_onMyAccountTapped" flat>My Account</paper-button>
         </slot>
       </action-buttons>
     </dialog-content>
