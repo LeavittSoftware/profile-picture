@@ -6,8 +6,7 @@ import '@polymer/paper-tabs/paper-tabs.js';
 import '@polymer/paper-button/paper-button.js';
 import '@polymer/paper-toggle-button/paper-toggle-button.js';
 import '@polymer/paper-input/paper-input.js';
-import { PolymerElement } from '@polymer/polymer';
-declare const DevelopmentMenuElement_base: typeof PolymerElement & import("@leavittsoftware/user-manager/lib/authenticated-roles-mixin").AuthenticatedRolesMixinConstructor;
+declare const DevelopmentMenuElement_base: any;
 export declare class DevelopmentMenuElement extends DevelopmentMenuElement_base {
     recentPermissions: Array<string>;
     recentPermissionItems: Array<any>;

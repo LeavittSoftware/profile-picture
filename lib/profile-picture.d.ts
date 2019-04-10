@@ -1,11 +1,11 @@
-import { PolymerElement } from '@polymer/polymer';
-export declare class ProfilePictureElement extends PolymerElement {
+import { LitElement } from 'lit-element';
+export declare class ProfilePictureElement extends LitElement {
     personId: number;
     shape: string;
     size: number;
-    src(personId: number, size: number): string;
-    _sizeChanged(): void;
+    _computeSrc(personId: number, size: number): string;
+    updated(changedProps: any): void;
     refresh(): void;
-    private isDev;
-    static readonly template: HTMLTemplateElement;
+    static styles: import("lit-element").CSSResult;
+    render(): import("lit-element").TemplateResult;
 }

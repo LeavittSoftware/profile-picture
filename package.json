@@ -4,23 +4,16 @@
   "description": "",
   "main": "profile-picture.html",
   "dependencies": {
-    "@leavittsoftware/user-manager": "^7.0.48",
-    "@polymer/decorators": "^3.0.0",
-    "@polymer/iron-list": "^3.0.0-pre.21",
-    "@polymer/iron-pages": "^3.0.0-pre.21",
-    "@polymer/paper-button": "^3.0.0-pre.21",
-    "@polymer/paper-dialog": "^3.0.0-pre.21",
-    "@polymer/paper-input": "^3.0.0-pre.21",
-    "@polymer/paper-tabs": "^3.0.0-pre.21",
-    "@polymer/paper-toggle-button": "^3.0.0-pre.21",
-    "@polymer/polymer": "^3.0.5"
+    "@leavittsoftware/titanium-elements": "^1.0.249",
+    "@leavittsoftware/user-manager": "^8.0.1",
+    "lit-html": "^1.0.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
-    "browser-sync": "^2.18.2",
-    "clang-format": "^1.2.2",
-    "tslint": "4.0.2",
-    "typescript": "^3.0.1"
+    "browser-sync": "^2.26.3",
+    "clang-format": "^1.2.4",
+    "tslint": "5.15.0",
+    "typescript": "^3.4.2"
   },
   "scripts": {
     "start": "tsc && cd demo && npm start",

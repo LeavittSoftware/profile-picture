@@ -9,7 +9,8 @@
     <script>
         //load babel if browers doesn't have proises polyfills
         (function () {
-            if (window.navigator.userAgent.indexOf("Edge") > -1 || typeof Promise === "undefined" || Promise.toString()
+            if (window.navigator.userAgent.indexOf("Edge") > -1 || typeof Promise === "undefined" || Promise
+                .toString()
                 .indexOf("[native code]") === -1) {
                 var e = document.createElement('script');
                 e.src = 'node_modules/babel-polyfill/dist/polyfill.min.js';
@@ -36,8 +37,10 @@
     <script type="module" src="node_modules/@polymer/iron-demo-helpers/demo-snippet.js" crossorigin></script>
     <script type="module" src="node_modules/@polymer/paper-styles/paper-styles.js" crossorigin></script>
 
-    <script type="module" src="node_modules/@leavittsoftware/profile-picture/lib/profile-picture.js" crossorigin></script>
-    <script type="module" src="node_modules/@leavittsoftware/profile-picture/lib/profile-picture-menu.js" crossorigin></script>
+    <script type="module" src="node_modules/@leavittsoftware/profile-picture/lib/profile-picture.js" crossorigin>
+    </script>
+    <script type="module" src="node_modules/@leavittsoftware/profile-picture/lib/profile-picture-menu.js" crossorigin>
+    </script>
 
     <custom-style>
         <style is="custom-style" include="demo-pages-shared-styles">
@@ -63,8 +66,9 @@
         <h3>LSS Profile Picture Demo</h3>
         <demo-snippet>
             <template>
-                <profile-picture person-id="11056"></profile-picture>
-                <profile-picture shape="square" person-id="11056"></profile-picture>
+                <profile-picture personId="11056"></profile-picture>
+                <profile-picture shape="square" personid="771130"></profile-picture>
+                <profile-picture size="24"></profile-picture>
             </template>
         </demo-snippet>
 
@@ -73,7 +77,8 @@
             <template>
                 <profile-picture-menu fullname="Aaron D" person-id="11056">
                     <div slot="content">
-                        <pre>slot="content"</pre> </div>
+                        <pre>slot="content"</pre>
+                    </div>
                 </profile-picture-menu>
             </template>
         </demo-snippet>

@@ -1,7 +1,6 @@
 import '../lib/profile-picture.js';
-import { PolymerElement } from '@polymer/polymer';
 import { ProfilePictureElement } from './profile-picture';
-declare const ProfilePictureMenuElement_base: typeof PolymerElement & import("@leavittsoftware/user-manager/lib/authenticated-person-mixin").AuthenticatedPersonMixinConstructor;
+declare const ProfilePictureMenuElement_base: any;
 export declare class ProfilePictureMenuElement extends ProfilePictureMenuElement_base {
     size: number;
     dialog: any;
