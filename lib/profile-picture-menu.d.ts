@@ -1,17 +1,30 @@
-import '../lib/profile-picture.js';
-import { ProfilePictureElement } from './profile-picture';
-declare const ProfilePictureMenuElement_base: any;
-export declare class ProfilePictureMenuElement extends ProfilePictureMenuElement_base {
+import '../lib/profile-picture';
+import '@material/mwc-button';
+import { LitElement } from 'lit-element';
+export declare class ProfilePictureMenuElement extends LitElement {
     size: number;
-    dialog: any;
-    profilePicture: ProfilePictureElement;
-    innerProfilePicture: ProfilePictureElement;
-    private _loadComplete;
-    refresh(): void;
-    protected _onProfilePictureTapped(): Promise<void>;
-    protected _onMyAccountTapped(): void;
-    protected _calcUpArrowStyle(size: number): string;
-    protected _onLogoutTapped(): void;
-    static readonly template: HTMLTemplateElement;
+    personId: number;
+    email: string;
+    name: string;
+    opened: boolean;
+    protected opening: boolean;
+    protected closing: boolean;
+    private _animationTimer;
+    private _animationFrame;
+    firstUpdated(): void;
+    setUserProps(): void;
+    updated(changedProps: any): void;
+    _toggleOverlay(): void;
+    open(): void;
+    /**
+     * Runs the given logic on the next animation frame, using setTimeout to factor in Firefox reflow behavior.
+     */
+    private runNextAnimationFrame_;
+    close(): void;
+    private handleAnimationTimerEnd_;
+    protected _calcOverlayPosition(size: number): {
+        top: string;
+    };
+    static styles: import("lit-element").CSSResult;
+    render(): import("lit-element").TemplateResult;
 }
-export {};

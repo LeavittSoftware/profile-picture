@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@leavittsoftware/profile-picture": "file:leavittsoftware-profile-picture-1.0.0.tgz",
+    "@leavittsoftware/user-manager": "^8.0.1",
     "@polymer/iron-demo-helpers": "^3.0.0-pre.21",
     "@polymer/paper-styles": "^3.0.0-pre.21",
     "@polymer/polymer": "^3.0.5",

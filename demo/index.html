@@ -40,6 +40,7 @@
     <script type="module" src="node_modules/@leavittsoftware/profile-picture/lib/profile-picture.js" crossorigin>
     </script>
     <script type="module" src="node_modules/@leavittsoftware/profile-picture/lib/profile-picture-menu.js" crossorigin>
+        <script type="module" src="node_modules/@leavittsoftware/user-manager/lib/user-manager.js" crossorigin>
     </script>
 
     <custom-style>
@@ -59,8 +60,8 @@
 </head>
 
 <body unresolved>
-
-    <div class="vertical-section-container centered">
+    <user-manager></user-manager>
+    <div>
         <a href="development-menu-demo.html">Profile picture with development menu demo (Authentication required)</a>
 
         <h3>LSS Profile Picture Demo</h3>
@@ -75,7 +76,13 @@
         <h3>LSS Profile Picture Menu Demo</h3>
         <demo-snippet>
             <template>
-                <profile-picture-menu fullname="Aaron D" person-id="11056">
+                <style>
+                    profile-picture-menu {
+                        margin-left: 400px;
+                        --mdc-theme-primary: #2196f3;
+                    }
+                </style>
+                <profile-picture-menu fullname="Aaron D" personId="11056">
                     <div slot="content">
                         <pre>slot="content"</pre>
                     </div>
@@ -94,7 +101,7 @@
                         --profile-picture-logout-button-color: #fff;
                     }
                 </style>
-                <profile-picture-menu person-id="771130" size="20" demo-two></profile-picture-menu>
+                <profile-picture-menu personId="771130" size="20" demo-two></profile-picture-menu>
             </template>
         </demo-snippet>
 

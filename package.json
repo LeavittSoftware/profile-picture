@@ -6,6 +6,7 @@
   "dependencies": {
     "@leavittsoftware/titanium-elements": "^1.0.249",
     "@leavittsoftware/user-manager": "^8.0.1",
+    "@material/mwc-button": "^0.5.0",
     "lit-html": "^1.0.0"
   },
   "devDependencies": {
