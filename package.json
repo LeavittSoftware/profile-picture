@@ -16,8 +16,9 @@
     "typescript": "^3.4.2"
   },
   "scripts": {
-    "start": "rm -r lib/* && tsc && cd demo && npm start",
+    "start": "rm -r lib/* && npm run build && cd demo && npm start",
     "update-demo": "cd demo && npm run update:local-package",
+    "build": "tsc",
     "lint": "tslint \"/*.ts\""
   },
   "repository": {
