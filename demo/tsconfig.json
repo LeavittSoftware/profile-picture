@@ -3,10 +3,7 @@
     "target": "es6",
     "module": "es2015",
     "moduleResolution": "node",
-    "lib": [
-      "esnext",
-      "dom"
-    ],
+    "lib": ["esnext", "dom"],
     "experimentalDecorators": true,
     "noImplicitAny": false,
     "declaration": false,
@@ -19,7 +16,5 @@
     "noUnusedParameters": true,
     "strictNullChecks": true
   },
-  "include": [
-    "*.ts"
-  ]
+  "include": ["*.ts"]
 }
