@@ -68,16 +68,28 @@
       <demo-snippet>
         <template>
           <style>
+            mock-toolbar {
+              display: flex;
+              flex-direction: row;
+
+              justify-content: flex-end;
+
+              height: 48px;
+              background-color: royalblue;
+              padding: 0 8px;
+            }
+
             profile-picture-menu {
-              margin-left: 400px;
-              --mdc-theme-primary: #2196f3;
+              align-self: center;
             }
           </style>
-          <profile-picture-menu fullname="Aaron D" personId="11056">
-            <div slot="content">
-              <pre>slot="content"</pre>
-            </div>
-          </profile-picture-menu>
+          <mock-toolbar>
+            <profile-picture-menu>
+              <div slot="content">
+                <pre>slot="content"</pre>
+              </div>
+            </profile-picture-menu>
+          </mock-toolbar>
         </template>
       </demo-snippet>
     </div>
