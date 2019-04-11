@@ -1,11 +1,11 @@
-﻿import {determineIsDevelopment} from '@leavittsoftware/titanium-elements/lib/titanium-dev-detection-mixin';
-import {css, customElement, html, LitElement, property} from 'lit-element';
+﻿import { determineIsDevelopment } from '@leavittsoftware/titanium-elements/lib/titanium-dev-detection-mixin';
+import { css, customElement, html, LitElement, property } from 'lit-element';
 
 @customElement('profile-picture')
 export class ProfilePictureElement extends LitElement {
-  @property({type: Number}) personId: number = 44;
-  @property({reflect: true, type: String}) shape: string = 'circle';
-  @property({type: Number}) size: number = 120;
+  @property({ type: Number }) personId: number = 44;
+  @property({ reflect: true, type: String }) shape: string = 'circle';
+  @property({ type: Number }) size: number = 120;
 
   _computeSrc(personId: number, size: number): string {
     const baseUrl = determineIsDevelopment(window.location.origin) ? 'https://devmapi.leavitt.com/' : 'https://mapi.leavitt.com/';
@@ -27,23 +27,25 @@ export class ProfilePictureElement extends LitElement {
 
   static styles = css`
     :host {
-        display: inline-block;
-        white-space: normal;
-        flex-shrink: 0;
+      display: inline-block;
+      white-space: normal;
+      flex-shrink: 0;
     }
 
     img {
-        display: block;
-        width: 100%;
+      display: block;
+      width: 100%;
     }
 
-    :host([shape=circle]) img {
-        border-radius: 50%;
-        cursor: pointer;
+    :host([shape='circle']) img {
+      border-radius: 50%;
+      cursor: pointer;
     }
-`;
+  `;
 
   render() {
-    return html`<img draggable="false" alt="Profile Picture" src="${this._computeSrc(this.personId, this.size)}">`;
+    return html`
+      <img draggable="false" alt="Profile Picture" src="${this._computeSrc(this.personId, this.size)}" />
+    `;
   }
 }

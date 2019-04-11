@@ -1,4 +1,5 @@
 /demo
+/lib
 tsconfig.json
 CODEOWNERS
 .clang-format

@@ -7,7 +7,7 @@
     "update:local-package": "npm pack ../ | tail -1 && npm uninstall profile-picture && npm install --save file:leavittsoftware-profile-picture-1.0.0.tgz",
     "preinstall": "npm run update:local-package",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run update:local-package && tsc && cd .. && gulp"
+    "start": "npm run update:local-package && cd .. && gulp"
   },
   "author": "",
   "license": "ISC",

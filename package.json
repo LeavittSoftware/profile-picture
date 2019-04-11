@@ -6,18 +6,17 @@
   "dependencies": {
     "@leavittsoftware/titanium-elements": "^1.0.249",
     "@leavittsoftware/user-manager": "^8.0.1",
-    "@material/mwc-button": "^0.5.0",
+    "@vaadin/vaadin-button": "^2.1.5",
     "lit-html": "^1.0.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
     "browser-sync": "^2.26.3",
-    "clang-format": "^1.2.4",
     "tslint": "5.15.0",
     "typescript": "^3.4.2"
   },
   "scripts": {
-    "start": "tsc && cd demo && npm start",
+    "start": "rm -r lib/* && tsc && cd demo && npm start",
     "update-demo": "cd demo && npm run update:local-package",
     "lint": "tslint \"/*.ts\""
   },

@@ -1,111 +1,97 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes" />
     <title>LSS Profile Picture Menu</title>
     <script>
-        //load babel if browers doesn't have proises polyfills
-        (function () {
-            if (window.navigator.userAgent.indexOf("Edge") > -1 || typeof Promise === "undefined" || Promise
-                .toString()
-                .indexOf("[native code]") === -1) {
-                var e = document.createElement('script');
-                e.src = 'node_modules/babel-polyfill/dist/polyfill.min.js';
-                document.head.appendChild(e);
-                console.log("bable polyfil loaded.");
-            }
+      //load babel if browers doesn't have proises polyfills
+      (function() {
+        if (window.navigator.userAgent.indexOf('Edge') > -1 || typeof Promise === 'undefined' || Promise.toString().indexOf('[native code]') === -1) {
+          var e = document.createElement('script');
+          e.src = 'node_modules/babel-polyfill/dist/polyfill.min.js';
+          document.head.appendChild(e);
+          console.log('bable polyfil loaded.');
+        }
+      })();
 
-        })();
-
-        //load fetch polyfills
-        (function () {
-            if (typeof window.fetch === "function") {
-                // browser has fetch
-            } else {
-                // polyfill fetch
-                var e = document.createElement('script');
-                e.src = 'node_modules/whatwg-fetch/fetch.js';
-                document.head.appendChild(e);
-                console.log("Fetch Polyfill loaded");
-            }
-        })();
+      //load fetch polyfills
+      (function() {
+        if (typeof window.fetch === 'function') {
+          // browser has fetch
+        } else {
+          // polyfill fetch
+          var e = document.createElement('script');
+          e.src = 'node_modules/whatwg-fetch/fetch.js';
+          document.head.appendChild(e);
+          console.log('Fetch Polyfill loaded');
+        }
+      })();
     </script>
     <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <script type="module" src="node_modules/@polymer/iron-demo-helpers/demo-snippet.js" crossorigin></script>
     <script type="module" src="node_modules/@polymer/paper-styles/paper-styles.js" crossorigin></script>
 
-    <script type="module" src="node_modules/@leavittsoftware/profile-picture/lib/profile-picture.js" crossorigin>
-    </script>
-    <script type="module" src="node_modules/@leavittsoftware/profile-picture/lib/profile-picture-menu.js" crossorigin>
-        <script type="module" src="node_modules/@leavittsoftware/user-manager/lib/user-manager.js" crossorigin>
-    </script>
+    <script type="module" src="node_modules/@leavittsoftware/profile-picture/lib/profile-picture.js" crossorigin></script>
+    <script type="module" src="node_modules/@leavittsoftware/profile-picture/lib/profile-picture-menu.js" crossorigin></script>
+    <script type="module" src="node_modules/@leavittsoftware/user-manager/lib/user-manager.js" crossorigin></script>
 
     <custom-style>
-        <style is="custom-style" include="demo-pages-shared-styles">
-            .vertical-section-container {
-                max-width: 500px;
-                margin: 0 auto;
-            }
+      <style is="custom-style">
+        .vertical-section-container {
+          max-width: 500px;
+          margin: 0 auto;
+        }
 
-            h3 {
-                @apply --paper-font-headline;
-            }
-        </style>
+        h3 {
+          @apply --paper-font-headline;
+        }
+      </style>
     </custom-style>
-    <style>
-    </style>
-</head>
+    <style></style>
+  </head>
 
-<body unresolved>
+  <body unresolved>
     <user-manager></user-manager>
     <div>
-        <a href="development-menu-demo.html">Profile picture with development menu demo (Authentication required)</a>
+      <h3>LSS Profile Picture Demo</h3>
+      <demo-snippet>
+        <template>
+          <profile-picture personId="11056"></profile-picture>
+          <profile-picture shape="square" personid="771130"></profile-picture>
+          <profile-picture size="24"></profile-picture>
+        </template>
+      </demo-snippet>
 
-        <h3>LSS Profile Picture Demo</h3>
-        <demo-snippet>
-            <template>
-                <profile-picture personId="11056"></profile-picture>
-                <profile-picture shape="square" personid="771130"></profile-picture>
-                <profile-picture size="24"></profile-picture>
-            </template>
-        </demo-snippet>
+      <h3>LSS Profile Picture Menu Demo</h3>
+      <demo-snippet>
+        <template>
+          <style>
+            mock-toolbar {
+              display: flex;
+              flex-direction: row;
 
-        <h3>LSS Profile Picture Menu Demo</h3>
-        <demo-snippet>
-            <template>
-                <style>
-                    profile-picture-menu {
-                        margin-left: 400px;
-                        --mdc-theme-primary: #2196f3;
-                    }
-                </style>
-                <profile-picture-menu fullname="Aaron D" personId="11056">
-                    <div slot="content">
-                        <pre>slot="content"</pre>
-                    </div>
-                </profile-picture-menu>
-            </template>
-        </demo-snippet>
+              justify-content: flex-end;
 
-        <h3>LSS Profile Picture Menu Styling Demo</h3>
-        <demo-snippet>
-            <template>
-                <style>
-                    profile-picture-menu[demo-two] {
-                        --profile-picture-menu-button-background-color: var(--paper-indigo-500);
-                        --profile-picture-menu-button-color: #fff;
-                        --profile-picture-logout-button-background-color: var(--paper-pink-a200);
-                        --profile-picture-logout-button-color: #fff;
-                    }
-                </style>
-                <profile-picture-menu personId="771130" size="20" demo-two></profile-picture-menu>
-            </template>
-        </demo-snippet>
+              height: 48px;
+              background-color: royalblue;
+              padding: 0 8px;
+            }
 
+            profile-picture-menu {
+              align-self: center;
+            }
+          </style>
+          <mock-toolbar>
+            <profile-picture-menu>
+              <div slot="content">
+                <pre>slot="content"</pre>
+              </div>
+            </profile-picture-menu>
+          </mock-toolbar>
+        </template>
+      </demo-snippet>
     </div>
-</body>
-
+  </body>
 </html>
