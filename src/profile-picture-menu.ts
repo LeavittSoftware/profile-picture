@@ -9,7 +9,7 @@ import { styleMap } from 'lit-html/directives/style-map';
 @customElement('profile-picture-menu')
 export class ProfilePictureMenuElement extends LitElement {
   @property({ type: Number }) size: number = 40;
-  @property({ type: Number }) personId: number = 11056;
+  @property({ type: Number }) personId: number = 44;
   @property({ type: String }) email: string = '';
   @property({ type: String }) name: string = '';
   @property({ type: Boolean, reflect: true }) opened: boolean;
