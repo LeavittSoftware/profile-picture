@@ -1,15 +1,21 @@
 {
     "rules": {
+        "arrow-parens": true,
         "class-name": true,
         "indent": [
             true,
-            "spaces"
+            "spaces",
+            2
         ],
+        "prefer-const": true,
         "no-duplicate-variable": true,
         "no-eval": true,
         "no-internal-module": true,
+        "no-parameter-properties": true,
         "no-trailing-whitespace": true,
         "no-var-keyword": true,
+        "no-any": true,
+        "no-unnecessary-type-assertion": true,
         "one-line": [
             true,
             "check-open-brace",
