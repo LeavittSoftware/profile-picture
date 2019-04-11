@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "profile-picture.html",
+  "files": [
+    "lib",
+    "src"
+  ],
   "dependencies": {
     "@leavittsoftware/titanium-elements": "^1.0.249",
     "@leavittsoftware/user-manager": "^8.0.1",
