@@ -1,5 +1,5 @@
 ﻿import '../lib/profile-picture';
-import '@material/mwc-button';
+import '@vaadin/vaadin-button/theme/material/vaadin-button.js';
 
 import { GetUserManagerInstance } from '@leavittsoftware/user-manager/lib/user-manager';
 import { UserManagerUpdatedEvent } from '@leavittsoftware/user-manager/lib/user-manager-events';
@@ -212,7 +212,13 @@ export class ProfilePictureMenuElement extends LitElement {
       padding: 12px 24px;
     }
 
-    mwc-button[account] {
+    vaadin-button {
+      cursor: pointer;
+      --material-primary-color: #2196f3;
+      --material-primary-text-color: #2196f3;
+    }
+
+    vaadin-button[account] {
       margin: 12px 24px 24px 24px;
       align-self: flex-start;
     }
@@ -244,11 +250,11 @@ export class ProfilePictureMenuElement extends LitElement {
           <slot-container>
             <slot name="content"></slot>
           </slot-container>
-          <mwc-button account unelevated label="Leavitt Group Account" @click=${() => window.open('https://accounts.leavitt.com/', '_blank')}></mwc-button>
+          <vaadin-button theme="contained" account @click=${() => window.open('https://accounts.leavitt.com/', '_blank')}>Leavitt Group Account</vaadin-button>
         </overlay-content>
         <overlay-actions>
-          <mwc-button label="LOGOUT" @click=${() => GetUserManagerInstance().logout()}></mwc-button>
-          <mwc-button label="CLOSE" @click=${() => this.close()}></mwc-button>
+          <vaadin-button @click=${() => GetUserManagerInstance().logout()}>LOGOUT</vaadin-button>
+          <vaadin-button @click=${() => this.close()}>CLOSE</vaadin-button>
         </overlay-actions>
       </overlay-menu>
     `;

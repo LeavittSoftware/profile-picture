@@ -1,5 +1,5 @@
 import '../lib/profile-picture';
-import '@material/mwc-button';
+import '@vaadin/vaadin-button/theme/material/vaadin-button.js';
 import { LitElement } from 'lit-element';
 export declare class ProfilePictureMenuElement extends LitElement {
     size: number;
