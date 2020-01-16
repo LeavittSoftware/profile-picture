@@ -33,7 +33,7 @@ var LSSProfilePicture = (function (_super) {
         if (!size || !personId)
             return;
         var largerSize = size * 1.2;
-        var baseUrl = this.isDev() ? "https://devapi2.leavitt.com/" : "https://api2.leavitt.com/";
+        var baseUrl = this.isDev() ? "https://devmapi.leavitt.com/" : "https://mapi.leavitt.com/";
         this.src = baseUrl + "People(" + personId + ")/Default.Picture(size=" + largerSize + ")";
     };
     LSSProfilePicture.prototype.randomId = function (shape) {

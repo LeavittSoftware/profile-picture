@@ -64,7 +64,7 @@ class LSSProfilePicture extends polymer.Base {
         if(!size || !personId)
             return;
         const largerSize = size * 1.2; 
-        var baseUrl = this.isDev() ? "https://devapi2.leavitt.com/" : "https://api2.leavitt.com/";
+        var baseUrl = this.isDev() ? "https://devmapi.leavitt.com/" : "https://mapi.leavitt.com/";
         this.src = `${baseUrl}People(${personId})/Default.Picture(size=${largerSize})`;
     }
 
