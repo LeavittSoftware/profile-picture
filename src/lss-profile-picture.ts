@@ -40,7 +40,6 @@ class LSSProfilePicture extends Polymer.Element {
 
   @Polymer.decorators.observe('personId,size')
   getSrc(personId: number, size: number) {
-    const baseUrl = this.isDev() ? 'https://devmapi.leavitt.com/' : 'https://mapi.leavitt.com/';
-    this.src = `${baseUrl}People(${personId})/Default.Picture(size=${size})`;
+    this.src = `https://cdn.leavitt.com/user-${personId}-${size}.jpeg`;
   }
 }
