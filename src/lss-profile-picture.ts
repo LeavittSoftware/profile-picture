@@ -43,7 +43,7 @@ class LSSProfilePicture extends Polymer.Element {
     this.src = `https://cdn.leavitt.com/user-${personId}-${size}.jpeg`;
   }
 
-  @Polymer.decorators.list('error', 'profileImage')
+  @Polymer.decorators.listen('error', 'profileImage')
   onProfilePictureError(size: number) {
     this.src = `https://cdn.leavitt.com/user-0-${size}.jpeg`;
   }
