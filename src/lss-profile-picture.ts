@@ -45,6 +45,12 @@ class LSSProfilePicture extends Polymer.Element {
 
   @Polymer.decorators.listen('error', 'profileImage')
   onProfilePictureError(size: number) {
-    this.src = `https://cdn.leavitt.com/user-0-${size}.jpeg`;
+    const availableSizes = [32,64,128,256,512]
+    size = availableSizes.filter(s => Number(s) >= size)[0] || 512;
+
+    const newSrc = `https://cdn.leavitt.com/user-0-${size}.jpeg`;
+    if (this.src === newSrc)
+      return;
+    this.src = newSrc;
   }
 }
