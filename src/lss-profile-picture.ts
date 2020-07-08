@@ -40,6 +40,9 @@ class LSSProfilePicture extends Polymer.DeclarativeEventListeners(Polymer.Elemen
 
   @Polymer.decorators.observe('personId,size')
   getSrc(personId: number, size: number) {
+    const availableSizes = [32,64,128,256,512]
+    size = availableSizes.filter(s => Number(s) >= size)[0] || 512;
+    
     this.src = `https://cdn.leavitt.com/user-${personId}-${size}.jpeg`;
   }
 
