@@ -40,7 +40,17 @@ class LSSProfilePicture extends Polymer.Element {
 
   @Polymer.decorators.observe('personId,size')
   getSrc(personId: number, size: number) {
-    const baseUrl = this.isDev() ? 'https://devmapi.leavitt.com/' : 'https://mapi.leavitt.com/';
-    this.src = `${baseUrl}People(${personId})/Default.Picture(size=${size})`;
+    this.src = `https://cdn.leavitt.com/user-${personId}-${size}.jpeg`;
+  }
+
+  @Polymer.decorators.listen('error', 'profileImage')
+  onProfilePictureError(size: number) {
+    const availableSizes = [32,64,128,256,512]
+    size = availableSizes.filter(s => Number(s) >= size)[0] || 512;
+
+    const newSrc = `https://cdn.leavitt.com/user-0-${size}.jpeg`;
+    if (this.src === newSrc)
+      return;
+    this.src = newSrc;
   }
 }

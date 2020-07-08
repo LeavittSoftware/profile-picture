@@ -5,6 +5,7 @@ declare class LSSProfilePicture extends Polymer.Element {
     src: string;
     _sizeChanged(): void;
     refresh(): void;
-    private isDev;
+    private isDev();
     getSrc(personId: number, size: number): void;
+    onProfilePictureError(size: number): void;
 }
