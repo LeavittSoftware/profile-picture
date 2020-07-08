@@ -1,5 +1,5 @@
 ﻿@Polymer.decorators.customElement('lss-profile-picture')
-class LSSProfilePicture extends Polymer.Element {
+class LSSProfilePicture extends Polymer.DeclarativeEventListeners(Polymer.Element) {
   @Polymer.decorators.property({type: Number, notify: true})
   personId: number = 44;
 

@@ -1,4 +1,5 @@
-declare class LSSProfilePicture extends Polymer.Element {
+declare const LSSProfilePicture_base: any;
+declare class LSSProfilePicture extends LSSProfilePicture_base {
     personId: number;
     shape: string;
     size: number;
